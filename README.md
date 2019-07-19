@@ -1,2 +1,5 @@
-# Pyro-probabilistic-models
-Implementation for various (deep) probabilistic models with user-friendly API using Pyro (https://pyro.ai/).
+# Uncertainty Quantification in Deep Learning
+
+This repo contains a literature survey and benchmark implementation for various approaches for predictive uncertainty estimation for deep learning models.  
+
+
