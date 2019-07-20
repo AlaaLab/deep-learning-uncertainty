@@ -34,5 +34,5 @@ This repo contains a literature survey and benchmark implementation for various 
 - K. Lee, H. Lee, K. Lee, and J. Shin. "Training Confidence-calibrated classifiers for detecting out-of-distribution samples." ICLR, 2018. [[Link]](https://openreview.net/forum?id=ryiAv2xAZ)
 
 
-## Implemented benchmarks
+## Implemented baselines
 
