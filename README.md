@@ -25,7 +25,9 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - R. G. Miller. "The jackknife–a review." Biometrika, 1974. [[Link]](https://www.jstor.org/stable/2334280?seq=1#metadata_info_tab_contents) 
 
-- B. Efron. "Bootstrap methods: Another look at the jackknife." Ann. Statist., 1979. [[Link]](https://projecteuclid.org/euclid.aos/1176344552) 
+- B. Efron. "Bootstrap methods: Another look at the jackknife." Ann. Statist., 1979. [[Link] (https://projecteuclid.org/euclid.aos/1176344552) 
+
+- R. A Stine. "Bootstrap prediction intervals for regression." Journal of the American Statistical Association, 1985. [[Link] (https://amstat.tandfonline.com/doi/abs/10.1080/01621459.1985.10478220) 
 
 
 #### Predictive uncertainty for general machine learning models
