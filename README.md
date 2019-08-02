@@ -23,7 +23,9 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - J. Tukey. "Bias and confidence in not quite large samples." Ann. Math. Statist, 1958. 
 
-- R. G. Miller. The jackknife–a review. Biometrika, 1974.  [[Link]](https://www.jstor.org/stable/2334280?seq=1#metadata_info_tab_contents) 
+- R. G. Miller. "The jackknife–a review." Biometrika, 1974. [[Link]](https://www.jstor.org/stable/2334280?seq=1#metadata_info_tab_contents) 
+
+- B. Efron. "Bootstrap methods: Another look at the jackknife." Ann. Statist., 1979. [[Link]](https://projecteuclid.org/euclid.aos/1176344552) 
 
 
 #### Predictive uncertainty for general machine learning models
