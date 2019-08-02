@@ -17,6 +17,10 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - V. Vovk, et al., "Cross-conformal predictive distributions." JMLR, 2018. [[Link]](http://proceedings.mlr.press/v91/vovk18a/vovk18a.pdf) 
 
+- M. H Quenouille., "Approximate tests of correlation in time-series." Journal of the Royal Statistical Society, 1949. [[Link]](https://www.jstor.org/stable/2983696?seq=1#metadata_info_tab_contents) 
+
+- M. H Quenouille. "Notes on bias in estimation." Biometrika, 1956. [[Link]](https://www.jstor.org/stable/2332914?seq=1#metadata_info_tab_contents) 
+
 
 #### Predictive uncertainty for general machine learning models
 
