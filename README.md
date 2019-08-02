@@ -21,6 +21,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - M. H Quenouille. "Notes on bias in estimation." Biometrika, 1956. [[Link]](https://www.jstor.org/stable/2332914?seq=1#metadata_info_tab_contents) 
 
+- J. Tukey. "Bias and confidence in not quite large samples." Ann. Math. Statist, 1958. 
+
 
 #### Predictive uncertainty for general machine learning models
 
