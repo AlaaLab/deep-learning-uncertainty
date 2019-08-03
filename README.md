@@ -29,6 +29,9 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - R. A Stine. "Bootstrap prediction intervals for regression." Journal of the American Statistical Association, 1985. [[Link]](https://amstat.tandfonline.com/doi/abs/10.1080/01621459.1985.10478220) 
 
+- R. F. Barber, E. J. Candes, A. Ramdas, and R. J. Tibshirani. "Conformal prediction under covariate shift." arXiv preprint arXiv:1904.06019, 2019. [[Link]](https://arxiv.org/pdf/1904.06019.pdf) 
+
+
 
 #### Predictive uncertainty for general machine learning models
 
