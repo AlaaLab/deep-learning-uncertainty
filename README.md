@@ -31,6 +31,10 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - R. F. Barber, E. J. Candes, A. Ramdas, and R. J. Tibshirani. "Conformal prediction under covariate shift." arXiv preprint arXiv:1904.06019, 2019. [[Link]](https://arxiv.org/pdf/1904.06019.pdf) 
 
+- R. F. Barber, E. J. Candes, A. Ramdas, and R. J. Tibshirani. "The limits of distribution-free conditional predictive inference." arXiv preprint arXiv:1903.04684, 2019b. [[Link]](https://arxiv.org/pdf/1903.04684.pdf) 
+
+- J. Lei, M. G'Sell, A. Rinaldo, R. J. Tibshirani, and L. Wasserman. "Distribution-free predictive inference for regression." Journal of the American Statistical Association, 2018. [[Link]](https://www.tandfonline.com/doi/pdf/10.1080/01621459.2017.1307116) 
+
 
 
 #### Predictive uncertainty for general machine learning models
