@@ -17,6 +17,25 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - V. Vovk, et al., "Cross-conformal predictive distributions." JMLR, 2018. [[Link]](http://proceedings.mlr.press/v91/vovk18a/vovk18a.pdf) 
 
+- M. H Quenouille., "Approximate tests of correlation in time-series." Journal of the Royal Statistical Society, 1949. [[Link]](https://www.jstor.org/stable/2983696?seq=1#metadata_info_tab_contents) 
+
+- M. H Quenouille. "Notes on bias in estimation." Biometrika, 1956. [[Link]](https://www.jstor.org/stable/2332914?seq=1#metadata_info_tab_contents) 
+
+- J. Tukey. "Bias and confidence in not quite large samples." Ann. Math. Statist, 1958. 
+
+- R. G. Miller. "The jackknife–a review." Biometrika, 1974. [[Link]](https://www.jstor.org/stable/2334280?seq=1#metadata_info_tab_contents) 
+
+- B. Efron. "Bootstrap methods: Another look at the jackknife." Ann. Statist., 1979. [[Link]](https://projecteuclid.org/euclid.aos/1176344552) 
+
+- R. A Stine. "Bootstrap prediction intervals for regression." Journal of the American Statistical Association, 1985. [[Link]](https://amstat.tandfonline.com/doi/abs/10.1080/01621459.1985.10478220) 
+
+- R. F. Barber, E. J. Candes, A. Ramdas, and R. J. Tibshirani. "Conformal prediction under covariate shift." arXiv preprint arXiv:1904.06019, 2019. [[Link]](https://arxiv.org/pdf/1904.06019.pdf) 
+
+- R. F. Barber, E. J. Candes, A. Ramdas, and R. J. Tibshirani. "The limits of distribution-free conditional predictive inference." arXiv preprint arXiv:1903.04684, 2019b. [[Link]](https://arxiv.org/pdf/1903.04684.pdf) 
+
+- J. Lei, M. G'Sell, A. Rinaldo, R. J. Tibshirani, and L. Wasserman. "Distribution-free predictive inference for regression." Journal of the American Statistical Association, 2018. [[Link]](https://www.tandfonline.com/doi/pdf/10.1080/01621459.2017.1307116) 
+
+
 
 #### Predictive uncertainty for general machine learning models
 
