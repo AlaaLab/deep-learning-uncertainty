@@ -63,3 +63,7 @@ This repo contains a literature survey and benchmark implementation for various 
 - Monte Carlo dropout (PyTorch). 
 - Probabilistic back-propagation.
 - Bayesian neural networks (Pyro).
+- Naive Jackknife (PyTorch).
+- Jackknife+ (PyTorch).
+- Cross conformal learning (PyTorch).
+- Split conformal learning (PyTorch).
