@@ -60,3 +60,6 @@ This repo contains a literature survey and benchmark implementation for various 
 
 ## Implemented baselines
 
+- Monte Carlo dropout (PyTorch). 
+- Probabilistic back-propagation.
+- Bayesian neural networks (Pyro).
