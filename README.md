@@ -67,3 +67,4 @@ This repo contains a literature survey and benchmark implementation for various 
 - Jackknife+ (PyTorch).
 - Cross conformal learning (PyTorch).
 - Split conformal learning (PyTorch).
+- Deep ensembles (PyTorch).
