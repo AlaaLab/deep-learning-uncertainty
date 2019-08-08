@@ -35,6 +35,9 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - J. Lei, M. G'Sell, A. Rinaldo, R. J. Tibshirani, and L. Wasserman. "Distribution-free predictive inference for regression." Journal of the American Statistical Association, 2018. [[Link]](https://www.tandfonline.com/doi/pdf/10.1080/01621459.2017.1307116) 
 
+- R. Giordano, M. I. Jordan, and T. Broderick. "A Higher-Order Swiss Army Infinitesimal Jackknife." arXiv, 2019. [[Link]](https://arxiv.org/pdf/1907.12116.pdf) 
+
+- P. W. Koh, K. Ang, H. H. K. Teo, and P. Liang. "On the Accuracy of Influence Functions for Measuring Group Effects." arXiv, 2019. [[Link]](https://arxiv.org/pdf/1905.13289.pdf)  
 
 
 #### Predictive uncertainty for general machine learning models
