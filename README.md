@@ -41,6 +41,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - P. W. Koh, K. Ang, H. H. K. Teo, and P. Liang. "On the Accuracy of Influence Functions for Measuring Group Effects." arXiv, 2019. [[Link]](https://arxiv.org/pdf/1905.13289.pdf)  
 
+- D. H. Wolpert. "Stacked generalization." Neural networks, 1992. [[Link]](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.133.8090&rep=rep1&type=pdf)  
+
 
 #### Predictive uncertainty for general machine learning models
 
