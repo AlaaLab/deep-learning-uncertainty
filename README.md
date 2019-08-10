@@ -9,6 +9,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 #### Basic background for uncertainty estimation 
 
+- B. Efron and R. Tibshirani. "Bootstrap methods for standard errors, confidence intervals, and other measures of statistical accuracy." Statistical science, 1986. [[Link]](https://www.jstor.org/stable/pdf/2245500.pdf)
+
 - R. Barber, E. J. Candes, A. Ramdas, and R. J. Tibshirani. "Predictive inference with the jackknife+." arXiv, 2019. [[Link]](https://arxiv.org/abs/1905.02928)
 
 - B. Efron. "Jackknife‐after‐bootstrap standard errors and influence functions." Journal of the Royal Statistical Society: Series B (Methodological), 1992. [[Link]](https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/j.2517-6161.1992.tb01866.x)
