@@ -73,11 +73,11 @@ This repo contains a literature survey and benchmark implementation for various 
 
 ## Implemented baselines
 
-- Monte Carlo dropout (PyTorch). 
-- Probabilistic back-propagation.
 - Bayesian neural networks (Pyro).
-- Naive Jackknife (PyTorch).
-- Jackknife+ (PyTorch).
-- Cross conformal learning (PyTorch).
-- Split conformal learning (PyTorch).
+- Monte Carlo dropout (PyTorch).
+- Bayes by backprop (PyTorch).
+- Probabilistic backprop.
+- Naive Jackknife, Jackknife-minmax, and Jackknife+ (PyTorch).
+- Cross conformal and split conformal learning (PyTorch).
 - Deep ensembles (PyTorch).
+- Resampling uncertainty estimation (PyTorch).
