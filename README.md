@@ -76,6 +76,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - P. Schulam and S. Saria "Can You Trust This Prediction? Auditing Pointwise Reliability After Learning." AISTATS, 2019. [[Link]](http://proceedings.mlr.press/v89/schulam19a/schulam19a.pdf) 
 
+- A. Malinin and M. Gales. "Predictive uncertainty estimation via prior networks." NeurIPS, 2018. [[Link]](http://papers.nips.cc/paper/7936-predictive-uncertainty-estimation-via-prior-networks.pdf) 
+
 
 ## Implemented baselines
 
