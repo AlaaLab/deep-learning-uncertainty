@@ -49,6 +49,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - P. W. Koh, and P. Liang. "Understanding black-box predictions via influence functions." ICML, 2017. [[Link]](https://dl.acm.org/citation.cfm?id=3305576) 
 
+- S. Wager and S. Athey. "Estimation and inference of heterogeneous treatment effects using random forests." Journal of the American Statistical Association, 2018. [[Link]](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1319839) 
+
 
 #### Predictive uncertainty for general machine learning models
 
