@@ -47,6 +47,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - R. Giordano, W. Stephenson, R. Liu, M. I. Jordan, and T. Broderick. "A Swiss Army Infinitesimal Jackknife." arXiv preprint arXiv:1806.00550, 2018. [[Link]](https://arxiv.org/pdf/1806.00550.pdf)  
 
+- P. W. Koh, and P. Liang. "Understanding black-box predictions via influence functions." ICML, 2017.
+
 
 #### Predictive uncertainty for general machine learning models
 
