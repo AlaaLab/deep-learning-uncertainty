@@ -45,6 +45,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - R. D. Cook, and S. Weisberg. "Residuals and influence in regression." New York: Chapman and Hall, 1982. [[Link]](https://conservancy.umn.edu/handle/11299/37076)  
 
+- R. Giordano, W. Stephenson, R. Liu, M. I. Jordan, and T. Broderick. "A Swiss Army Infinitesimal Jackknife." arXiv preprint arXiv:1806.00550, 2018. [[Link]](https://arxiv.org/pdf/1806.00550.pdf)  
+
 
 #### Predictive uncertainty for general machine learning models
 
