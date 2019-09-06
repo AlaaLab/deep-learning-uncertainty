@@ -43,6 +43,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - D. H. Wolpert. "Stacked generalization." Neural networks, 1992. [[Link]](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.133.8090&rep=rep1&type=pdf)  
 
+- R. D. Cook, and S. Weisberg. "Residuals and influence in regression." New York: Chapman and Hall, 1982. [[Link]](https://conservancy.umn.edu/handle/11299/37076)  
+
 
 #### Predictive uncertainty for general machine learning models
 
