@@ -82,7 +82,9 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - D. Hendrycks, M. Mazeika, and T. G. Dietterich. "Deep anomaly detection with outlier exposure." arXiv preprint arXiv:1812.04606, 2018. [[Link]](https://arxiv.org/pdf/1812.04606.pdf)
 
-- D. Madras, J. Atwood, A. D'Amour, "Detecting Extrapolation with Influence Functions." ICML Workshop on Uncertainty and Robustness in Deep Learning, 2019. [[Link]](http://www.gatsby.ucl.ac.uk/~balaji/udl2019/accepted-papers/UDL2019-paper-05.pdf)    
+- D. Madras, J. Atwood, A. D'Amour, "Detecting Extrapolation with Influence Functions." ICML Workshop on Uncertainty and Robustness in Deep Learning, 2019. [[Link]](http://www.gatsby.ucl.ac.uk/~balaji/udl2019/accepted-papers/UDL2019-paper-05.pdf)  
+
+- M. Sensoy, L. Kaplan, and M. Kandemir. "Evidential deep learning to quantify classification uncertainty." NeurIPS, 2018. [[Link]](https://papers.nips.cc/paper/7580-evidential-deep-learning-to-quantify-classification-uncertainty.pdf)
 
 ## Implemented baselines
 
