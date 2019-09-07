@@ -88,6 +88,9 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - W. Maddox, T. Garipov, P. Izmailov, D. Vetrov, and A. G. Wilson. "A simple baseline for bayesian uncertainty in deep learning." arXiv preprint arXiv:1902.02476, 2019. [[Link]](https://arxiv.org/pdf/1902.02476.pdf)
 
+- Y. Ovadia, et al. "Can You Trust Your Model's Uncertainty? Evaluating Predictive Uncertainty Under Dataset Shift." arXiv preprint arXiv:1906.02530, 2019. [[Link]](https://arxiv.org/pdf/1906.02530.pdf)
+
+
 ## Implemented baselines
 
 - Bayesian neural networks (Pyro).
