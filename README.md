@@ -86,6 +86,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - M. Sensoy, L. Kaplan, and M. Kandemir. "Evidential deep learning to quantify classification uncertainty." NeurIPS, 2018. [[Link]](https://papers.nips.cc/paper/7580-evidential-deep-learning-to-quantify-classification-uncertainty.pdf)
 
+- W. Maddox, T. Garipov, P. Izmailov, D. Vetrov, and A. G. Wilson. "A simple baseline for bayesian uncertainty in deep learning." arXiv preprint arXiv:1902.02476, 2019. [[Link]](https://arxiv.org/pdf/1902.02476.pdf)
+
 ## Implemented baselines
 
 - Bayesian neural networks (Pyro).
