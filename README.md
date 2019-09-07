@@ -90,6 +90,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - Y. Ovadia, et al. "Can You Trust Your Model's Uncertainty? Evaluating Predictive Uncertainty Under Dataset Shift." arXiv preprint arXiv:1906.02530, 2019. [[Link]](https://arxiv.org/pdf/1906.02530.pdf)
 
+- D.Hendrycks, et al. "Using Self-Supervised Learning Can Improve Model Robustness and Uncertainty." arXiv preprint arXiv:1906.12340, 2019. [[Link]](https://arxiv.org/pdf/1906.12340.pdf)
+
 
 ## Implemented baselines
 
