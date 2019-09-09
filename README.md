@@ -51,6 +51,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - S. Wager and S. Athey. "Estimation and inference of heterogeneous treatment effects using random forests." Journal of the American Statistical Association, 2018. [[Link]](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1319839) 
 
+- J. F. Lawless, and M. Fredette. "Frequentist prediction intervals and predictive distributions." Biometrika, 2005. [[Link]](https://ideas.repec.org/a/oup/biomet/v92y2005i3p529-542.html) 
+
 
 #### Predictive uncertainty for general machine learning models
 
