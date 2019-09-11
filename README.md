@@ -53,6 +53,10 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - J. F. Lawless, and M. Fredette. "Frequentist prediction intervals and predictive distributions." Biometrika, 2005. [[Link]](https://ideas.repec.org/a/oup/biomet/v92y2005i3p529-542.html) 
 
+- F. R. Hampel, E. M. Ronchetti, P. J. Rousseeuw, and W. A. Stahel. "Robust statistics: the approach based on influence functions." John Wiley and Sons, 2011. [[Link]](https://www.wiley.com/en-us/Robust+Statistics%3A+The+Approach+Based+on+Influence+Functions-p-9781118150689)
+
+- P. J. Huber and E. M. Ronchetti. "Robust Statistics." John Wiley and Sons, 1981.
+
 
 #### Predictive uncertainty for general machine learning models
 
@@ -103,5 +107,5 @@ This repo contains a literature survey and benchmark implementation for various 
 - Probabilistic backprop.
 - Naive Jackknife, Jackknife-minmax, and Jackknife+ (PyTorch).
 - Cross conformal and split conformal learning (PyTorch).
-- Deep ensembles (PyTorch).
+- Deep ensembles (Tensorflow).
 - Resampling uncertainty estimation (PyTorch).
