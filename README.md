@@ -66,6 +66,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - J. Platt. "Probabilistic outputs for support vector machines and comparisons to regularized likelihood methods." Advances in large margin classifiers, 1999. [[Link]](https://www.researchgate.net/profile/John_Platt/publication/2594015_Probabilistic_Outputs_for_Support_Vector_Machines_and_Comparisons_to_Regularized_Likelihood_Methods/links/004635154cff5262d6000000.pdf)
 
+- A. Abadie, S. Athey, G. Imbens. "Sampling-based vs. design-based uncertainty in regression analysis." arXiv preprint (arXiv:1706.01778), 2017. [[Link]](https://arxiv.org/pdf/1706.01778.pdf) 
+
 #### Predictive uncertainty for deep learning
 
 - J. A. Leonard, M. A. Kramer, and L. H. Ungar. "A neural network architecture that computes its own reliability." Computers & chemical engineering, 1992. [[Link]](https://www.sciencedirect.com/science/article/pii/0098135492800358)
