@@ -70,6 +70,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - T. Duan, A. Avati, D. Y. Ding, S. Basu, Andrew Y. Ng, and A. Schuler. "NGBoost: Natural Gradient Boosting for Probabilistic Prediction." arXiv preprint, 2019. [[Link]](https://arxiv.org/pdf/1910.03225.pdf) 
 
+- V. Franc, and D. Prusa. "On Discriminative Learning of Prediction Uncertainty." ICML, 2019. [[Link]](http://proceedings.mlr.press/v97/franc19a/franc19a.pdf)
+
 #### Predictive uncertainty for deep learning
 
 - J. A. Leonard, M. A. Kramer, and L. H. Ungar. "A neural network architecture that computes its own reliability." Computers & chemical engineering, 1992. [[Link]](https://www.sciencedirect.com/science/article/pii/0098135492800358)
