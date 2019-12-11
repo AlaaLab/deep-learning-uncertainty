@@ -110,7 +110,7 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - A. Kumar, P. Liang, T. Ma. "Verified Uncertainty Calibration." arXiv preprint, 2019. [[Link]](https://arxiv.org/abs/1909.10155) 
 
-- I. Osband, C. Blundell, A. Pritzel, and B. Van Roy. "Predictive uncertainty estimation via prior networks." NeurIPS, 2016. [[Link]](https://papers.nips.cc/paper/6501-deep-exploration-via-bootstrapped-dqn.pdf) 
+- I. Osband, C. Blundell, A. Pritzel, and B. Van Roy. "Deep Exploration via Bootstrapped DQN." NeurIPS, 2016. [[Link]](https://papers.nips.cc/paper/6501-deep-exploration-via-bootstrapped-dqn.pdf) 
 
 - I. Osband. "Risk versus Uncertainty in Deep Learning: Bayes, Bootstrap and the Dangers of Dropout." NeurIPS Workshop, 2016. [[Link]](http://bayesiandeeplearning.org/2016/papers/BDL_4.pdf) 
 
