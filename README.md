@@ -110,6 +110,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - A. Kumar, P. Liang, T. Ma. "Verified Uncertainty Calibration." arXiv preprint, 2019. [[Link]](https://arxiv.org/abs/1909.10155) 
 
+- I. Osband, C. Blundell, A. Pritzel, and B. Van Roy. "Predictive uncertainty estimation via prior networks." NeurIPS, 2016. [[Link]](https://papers.nips.cc/paper/6501-deep-exploration-via-bootstrapped-dqn.pdf) 
+
 ## Implemented baselines
 
 - Bayesian neural networks (Pyro).
