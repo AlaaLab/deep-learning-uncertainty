@@ -112,6 +112,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - I. Osband, C. Blundell, A. Pritzel, and B. Van Roy. "Predictive uncertainty estimation via prior networks." NeurIPS, 2016. [[Link]](https://papers.nips.cc/paper/6501-deep-exploration-via-bootstrapped-dqn.pdf) 
 
+- I. Osband. "Risk versus Uncertainty in Deep Learning: Bayes, Bootstrap and the Dangers of Dropout." NeurIPS Workshop, 2016. [[Link]](http://bayesiandeeplearning.org/2016/papers/BDL_4.pdf) 
+
 ## Implemented baselines
 
 - Bayesian neural networks (Pyro).
