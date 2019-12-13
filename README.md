@@ -116,6 +116,9 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - J. Postels et al. "Sampling-free Epistemic Uncertainty Estimation Using Approximated Variance Propagation." ICCV, 2019. [[Link]](http://openaccess.thecvf.com/content_ICCV_2019/papers/Postels_Sampling-Free_Epistemic_Uncertainty_Estimation_Using_Approximated_Variance_Propagation_ICCV_2019_paper.pdf)  
 
+- A. Kendall and Y. Gal. "What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?" NeurIPS, 2017. [[Link]](https://arxiv.org/pdf/1703.04977.pdf) 
+
+
 ## Implemented baselines
 
 - Bayesian neural networks (Pyro).
