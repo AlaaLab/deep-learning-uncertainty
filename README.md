@@ -122,6 +122,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - A. Der Kiureghian and O. Ditlevsen. "Aleatory or Epistemic? Does it Matter?." Structural Safety, 2009. [[Link]](https://www.sciencedirect.com/science/article/pii/S0167473008000556) 
 
+- D. Hafner, D. Tran, A. Irpan, T. Lillicrap, and J. Davidson. "Reliable uncertainty estimates in deep neural networks using noise contrastive priors." arXiv, 2018. [[Link]](https://arxiv.org/pdf/1807.09289.pdf)
+
 
 ## Implemented baselines
 
