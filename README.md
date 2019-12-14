@@ -124,6 +124,7 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - D. Hafner, D. Tran, A. Irpan, T. Lillicrap, and J. Davidson. "Reliable uncertainty estimates in deep neural networks using noise contrastive priors." arXiv, 2018. [[Link]](https://arxiv.org/pdf/1807.09289.pdf)
 
+- S. Depeweg, J. M. Hernández-Lobato, F. Doshi-Velez, and S. Udluft. "Decomposition of uncertainty in Bayesian deep learning for efficient and risk-sensitive learning". ICML, 2018. [[Link]](http://publications.eng.cam.ac.uk/945907/)
 
 ## Implemented baselines
 
