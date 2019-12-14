@@ -118,6 +118,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - A. Kendall and Y. Gal. "What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?" NeurIPS, 2017. [[Link]](https://arxiv.org/pdf/1703.04977.pdf) 
 
+- N. Tagasovska and D. Lopez-Paz. "Single-Model Uncertainties for Deep Learning." NeurIPS, 2019. [[Link]](https://papers.nips.cc/paper/8870-single-model-uncertainties-for-deep-learning.pdf) 
+
 
 ## Implemented baselines
 
