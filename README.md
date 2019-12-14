@@ -120,6 +120,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - N. Tagasovska and D. Lopez-Paz. "Single-Model Uncertainties for Deep Learning." NeurIPS, 2019. [[Link]](https://papers.nips.cc/paper/8870-single-model-uncertainties-for-deep-learning.pdf) 
 
+- A. Der Kiureghian and O. Ditlevsen. "Aleatory or Epistemic? Does it Matter?." Structural Safety, 2009. [[Link]](https://www.sciencedirect.com/science/article/pii/S0167473008000556) 
+
 
 ## Implemented baselines
 
