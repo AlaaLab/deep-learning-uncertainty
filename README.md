@@ -132,6 +132,8 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - D. T. Mirikitani and N. Nikolaev. "Recursive bayesian recurrent neural networks for time-series modeling." IEEE Transactions on Neural Networks, 2009. [[Link]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5361332)
 
+- M. Fortunato, C. Blundell and O. Vinyals. "Bayesian Recurrent Neural Networks." arXiv, 2019. [[Link]](https://arxiv.org/pdf/1704.02798.pdf)
+
 ## Implemented baselines
 
 - Bayesian neural networks (Pyro).
