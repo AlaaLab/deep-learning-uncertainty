@@ -74,6 +74,7 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - V. Franc, and D. Prusa. "On Discriminative Learning of Prediction Uncertainty." ICML, 2019. [[Link]](http://proceedings.mlr.press/v97/franc19a/franc19a.pdf)
 
+
 #### Predictive uncertainty for deep learning
 
 - J. A. Leonard, M. A. Kramer, and L. H. Ungar. "A neural network architecture that computes its own reliability." Computers & chemical engineering, 1992. [[Link]](https://www.sciencedirect.com/science/article/pii/0098135492800358)
@@ -128,6 +129,7 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - L. Smith and Y. Gal, "Understanding Measures of Uncertainty for Adversarial Example Detection." UAI, 2018. [[Link]](https://arxiv.org/pdf/1803.08533.pdf)
 
+
 #### Predictive uncertainty in sequential models
 
 - R. Wen, K. Torkkola, B. Narayanaswamy, and D. Madeka. "A Multi-horizon Quantile Recurrent Forecaster." arXiv, 2017. 
@@ -135,6 +137,9 @@ This repo contains a literature survey and benchmark implementation for various 
 - D. T. Mirikitani and N. Nikolaev. "Recursive bayesian recurrent neural networks for time-series modeling." IEEE Transactions on Neural Networks, 2009. [[Link]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5361332)
 
 - M. Fortunato, C. Blundell and O. Vinyals. "Bayesian Recurrent Neural Networks." arXiv, 2019. [[Link]](https://arxiv.org/pdf/1704.02798.pdf)
+
+- P. L. McDermott, C. K. Wikle. "Bayesian Recurrent Neural Network Models for Forecasting and Quantifying Uncertainty in Spatial-Temporal Data." Entropy, 2019. [[Link]](https://www.mdpi.com/1099-4300/21/2/184)
+
 
 ## Implemented baselines
 
