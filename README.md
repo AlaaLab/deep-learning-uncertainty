@@ -126,6 +126,12 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - S. Depeweg, J. M. Hernández-Lobato, F. Doshi-Velez, and S. Udluft. "Decomposition of uncertainty in Bayesian deep learning for efficient and risk-sensitive learning". ICML, 2018. [[Link]](http://publications.eng.cam.ac.uk/945907/)
 
+#### Predictive uncertainty in sequential models
+
+- R. Wen, K. Torkkola, B. Narayanaswamy, and D. Madeka. "A Multi-horizon Quantile Recurrent Forecaster." arXiv, 2017. 
+
+- D. T. Mirikitani and N. Nikolaev. "Recursive bayesian recurrent neural networks for time-series modeling." IEEE Transactions on Neural Networks, 2009. [[Link]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5361332)
+
 ## Implemented baselines
 
 - Bayesian neural networks (Pyro).
