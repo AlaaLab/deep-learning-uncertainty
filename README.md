@@ -62,7 +62,6 @@ This repo contains a literature survey and benchmark implementation for various 
 - H. R. Kunsch. "The Jackknife and the Bootstrap for General Stationary Observations." The annals of Statistics, 1989. [[Link]](https://www.jstor.org/stable/pdf/2241719.pdf)
 
 
-
 #### Predictive uncertainty for general machine learning models
 
 - S. Wager, T. Hastie, and B. Efron. "Confidence intervals for random forests: The jackknife and the infinitesimal jackknife." The Journal of Machine Learning Research, 2014. [[Link]](http://jmlr.org/papers/volume15/wager14a/wager14a.pdf)
@@ -131,6 +130,8 @@ This repo contains a literature survey and benchmark implementation for various 
 - S. Depeweg, J. M. Hernández-Lobato, F. Doshi-Velez, and S. Udluft. "Decomposition of uncertainty in Bayesian deep learning for efficient and risk-sensitive learning." ICML, 2018. [[Link]](http://publications.eng.cam.ac.uk/945907/)
 
 - L. Smith and Y. Gal, "Understanding Measures of Uncertainty for Adversarial Example Detection." UAI, 2018. [[Link]](https://arxiv.org/pdf/1803.08533.pdf)
+
+- L. Zhu and N. Laptev. "Deep and Confident Prediction for Time series at Uber." IEEE International Conference on Data Mining Workshops, 2017. [[Link]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8215650)
 
 
 #### Predictive uncertainty in sequential models
