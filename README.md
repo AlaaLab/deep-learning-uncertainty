@@ -59,6 +59,9 @@ This repo contains a literature survey and benchmark implementation for various 
 
 - Y. Romano, R. F. Barber, C. Sabatti, E. J. Candès. "With Malice Towards None: Assessing Uncertainty via Equalized Coverage." arXiv, 2019. [[Link]](https://arxiv.org/pdf/1908.05428.pdf)
 
+- H. R. Kunsch. "The Jackknife and the Bootstrap for General Stationary Observations." The annals of Statistics, 1989. [[Link]](https://www.jstor.org/stable/pdf/2241719.pdf)
+
+
 
 #### Predictive uncertainty for general machine learning models
 
