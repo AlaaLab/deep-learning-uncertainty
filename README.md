@@ -144,6 +144,8 @@ This repo contains a literature survey and implementation of benchmark for uncer
 
 - P. L. McDermott, C. K. Wikle. "Bayesian Recurrent Neural Network Models for Forecasting and Quantifying Uncertainty in Spatial-Temporal Data." Entropy, 2019. [[Link]](https://www.mdpi.com/1099-4300/21/2/184)
 
+- Y. Gal, Z. Ghahramani. "A theoretically grounded application of dropout in recurrent neural networks." NeurIPS, 2016. [[Link]](https://papers.nips.cc/paper/6241-a-theoretically-grounded-application-of-dropout-in-recurrent-neural-networks.pdf) 
+
 
 ## Implemented baselines
 
