@@ -3,7 +3,7 @@
 [![Python 3.6+](https://img.shields.io/badge/Platform-Python%203.6-blue.svg)](https://www.python.org/)
 [![PyTorch 1.1.0](https://img.shields.io/badge/Implementation-Pytorch-brightgreen.svg)](https://pytorch.org/)
 
-This repo contains literature survey and implementation of baselines for uncertainty estimation in deep learning.  
+This repo contains literature survey and implementation of baselines for predictive uncertainty estimation in deep learning.  
 
 ## Literature survey
 
