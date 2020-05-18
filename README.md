@@ -133,6 +133,8 @@ This repo contains literature survey and implementation of baselines for predict
 
 - L. Zhu and N. Laptev. "Deep and Confident Prediction for Time series at Uber." IEEE International Conference on Data Mining Workshops, 2017. [[Link]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8215650)
 
+- M. W. Dusenberry, G. Jerfel, Y. Wen, Yi-an Ma, J. Snoek, K. Heller, B. Lakshminarayanan, D. Tran. "Efficient and Scalable Bayesian Neural Nets with Rank-1 Factors." arXiv, 2020. [[Link]](https://arxiv.org/abs/2005.07186)
+
 
 #### Predictive uncertainty in sequential models
 
