@@ -76,6 +76,8 @@ This repo contains literature survey and implementation of baselines for predict
 
 - V. Franc, and D. Prusa. "On Discriminative Learning of Prediction Uncertainty." ICML, 2019. [[Link]](http://proceedings.mlr.press/v97/franc19a/franc19a.pdf)
 
+- Y. Romano, M. Sesia, and E. J. Candès. "Classification with Valid and Adaptive Coverage." arXiv preprint, 2020. [[Link]](https://arxiv.org/pdf/2006.02544.pdf) 
+
 
 #### Predictive uncertainty for deep learning
 
