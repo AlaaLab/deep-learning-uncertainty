@@ -137,6 +137,8 @@ This repo contains literature survey and implementation of baselines for predict
 
 - M. W. Dusenberry, G. Jerfel, Y. Wen, Yi-an Ma, J. Snoek, K. Heller, B. Lakshminarayanan, D. Tran. "Efficient and Scalable Bayesian Neural Nets with Rank-1 Factors." arXiv, 2020. [[Link]](https://arxiv.org/abs/2005.07186)
 
+- J. van Amersfoort, L. Smith, Y. W. Teh, and Y. Gal. "Uncertainty Estimation Using a Single Deep Deterministic Neural Network." ICML, 2020. [[Link]](https://arxiv.org/abs/2003.02037)
+
 
 #### Predictive uncertainty in sequential models
 
