@@ -103,7 +103,7 @@ This repo contains literature survey and implementation of baselines for predict
 
 - D. Hendrycks, M. Mazeika, and T. G. Dietterich. "Deep anomaly detection with outlier exposure." arXiv preprint arXiv:1812.04606, 2018. [[Link]](https://arxiv.org/pdf/1812.04606.pdf)
 
-A-A. Papadopoulos, M. R. Rajati, N. Shaikh, and J. Wang. "Outlier exposure with confidence control for out-of-distribution detection." arXiv preprint arXiv:1906.03509, 2019. [[Link]](https://arxiv.org/pdf/1906.03509.pdf)
+- A-A. Papadopoulos, M. R. Rajati, N. Shaikh, and J. Wang. "Outlier exposure with confidence control for out-of-distribution detection." arXiv preprint arXiv:1906.03509, 2019. [[Link]](https://arxiv.org/pdf/1906.03509.pdf)
 
 - D. Madras, J. Atwood, A. D'Amour, "Detecting Extrapolation with Influence Functions." ICML Workshop on Uncertainty and Robustness in Deep Learning, 2019. [[Link]](http://www.gatsby.ucl.ac.uk/~balaji/udl2019/accepted-papers/UDL2019-paper-05.pdf)  
 
