@@ -141,6 +141,8 @@ This repo contains literature survey and implementation of baselines for predict
 
 - J. van Amersfoort, L. Smith, Y. W. Teh, and Y. Gal. "Uncertainty Estimation Using a Single Deep Deterministic Neural Network." ICML, 2020. [[Link]](https://arxiv.org/abs/2003.02037)
 
+- E. Begoli, T. Bhattacharya and D. Kusnezov. "The need for uncertainty quantification in machine-assisted medical decision making." Nature Machine Intelligence, 2019. [[Link]](https://www.nature.com/articles/s42256-018-0004-1)  
+
 
 #### Predictive uncertainty in sequential models
 
@@ -154,14 +156,3 @@ This repo contains literature survey and implementation of baselines for predict
 
 - Y. Gal, Z. Ghahramani. "A theoretically grounded application of dropout in recurrent neural networks." NeurIPS, 2016. [[Link]](https://papers.nips.cc/paper/6241-a-theoretically-grounded-application-of-dropout-in-recurrent-neural-networks.pdf) 
 
-
-## Implemented baselines
-
-- Bayesian neural networks (Pyro).
-- Monte Carlo dropout (PyTorch).
-- Bayes by backprop (PyTorch).
-- Probabilistic backprop.
-- Naive Jackknife, Jackknife-minmax, and Jackknife+ (PyTorch).
-- Cross conformal and split conformal learning (PyTorch).
-- Deep ensembles (Tensorflow).
-- Resampling uncertainty estimation (PyTorch).
