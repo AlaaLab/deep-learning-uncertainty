@@ -143,6 +143,8 @@ This repo contains literature survey and implementation of baselines for predict
 
 - E. Begoli, T. Bhattacharya and D. Kusnezov. "The need for uncertainty quantification in machine-assisted medical decision making." Nature Machine Intelligence, 2019. [[Link]](https://www.nature.com/articles/s42256-018-0004-1)  
 
+- T. S. Salem, H. Langseth, and H. Ramampiaro. "Prediction Intervals: Split Normal Mixture from Quality-Driven Deep Ensembles." UAI, 2020. [[Link]](http://proceedings.mlr.press/v124/saleh-salem20a/saleh-salem20a.pdf)  
+
 
 #### Predictive uncertainty in sequential models
 
