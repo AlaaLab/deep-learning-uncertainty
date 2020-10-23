@@ -145,6 +145,8 @@ This repo contains literature survey and implementation of baselines for predict
 
 - T. S. Salem, H. Langseth, and H. Ramampiaro. "Prediction Intervals: Split Normal Mixture from Quality-Driven Deep Ensembles." UAI, 2020. [[Link]](http://proceedings.mlr.press/v124/saleh-salem20a/saleh-salem20a.pdf)  
 
+- K. Posch, and J. Pilz, "Correlated Parameters to Accurately Measure Uncertainty in Deep Neural Networks." IEEE Transactions on Neural Networks and Learning Systems, 2020. [[Link]](https://ieeexplore.ieee.org/document/9070148)
+
 
 #### Predictive uncertainty in sequential models
 
