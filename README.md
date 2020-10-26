@@ -147,6 +147,8 @@ This repo contains literature survey and implementation of baselines for predict
 
 - K. Posch, and J. Pilz, "Correlated Parameters to Accurately Measure Uncertainty in Deep Neural Networks." IEEE Transactions on Neural Networks and Learning Systems, 2020. [[Link]](https://ieeexplore.ieee.org/document/9070148)
 
+- B. Kompa, J. Snoek, and A. Beam. "Empirical Frequentist Coverage of Deep Learning Uncertainty Quantification Procedures." arXiv, 2020. [[Link]](https://arxiv.org/pdf/2010.03039.pdf)
+
 
 #### Predictive uncertainty in sequential models
 
