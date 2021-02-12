@@ -83,6 +83,8 @@ This repo contains literature survey and implementation of baselines for predict
 
 #### Predictive uncertainty for deep learning
 
+- A. N. Angelopoulos, S. Bates, T. Zrnic, M. I. Jordan. "Private Prediction Sets". arXiv, 2021. [[Link]](https://arxiv.org/abs/2102.06202)
+
 - J. A. Leonard, M. A. Kramer, and L. H. Ungar. "A neural network architecture that computes its own reliability." Computers & chemical engineering, 1992. [[Link]](https://www.sciencedirect.com/science/article/pii/0098135492800358)
 
 - C. Blundell, J. Cornebise, K. Kavukcuoglu, and D. Wierstra. "Weight uncertainty in neural networks." ICML, 2015. [[Link]](https://arxiv.org/pdf/1505.05424.pdf) 
