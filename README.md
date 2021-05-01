@@ -83,6 +83,8 @@ This repo contains literature survey and implementation of baselines for predict
 
 #### Predictive uncertainty for deep learning
 
+- M. Havasi, R. Jenatton, S. Fort, J. Z. Liu, J. Snoek, B. Lakshminarayanan, A. M. Dai, and D. Tran. "Training independent subnetworks for robust prediction." ICLR, 2021. [[Link]](https://arxiv.org/pdf/2010.06610.pdf) 
+
 - B. Adlam, J. Lee, L. Xiao, J. Pennington, J. Snoek. "Exploring the Uncertainty Properties of Neural Networks’ Implicit Priors in the Infinite-Width Limit". ICLR, 2021. [[Link]](https://openreview.net/forum?id=MjvduJCsE4)
 
 - A. N. Angelopoulos, S. Bates, T. Zrnic, M. I. Jordan. "Private Prediction Sets". arXiv, 2021. [[Link]](https://arxiv.org/abs/2102.06202)
