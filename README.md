@@ -87,6 +87,10 @@ This repo contains literature survey and implementation of baselines for predict
 
 #### Predictive uncertainty for deep learning
 
+- A.-K. Kopetzki, B. Charpentier, D. Zügner, S. Giri, S. Günnemann. "Evaluating Robustness of Predictive Uncertainty Estimation: Are Dirichlet-based Models Reliable?" ICML 2021. [[Link]](https://arxiv.org/abs/2010.14986) 
+
+- A. Zhou and S. Levine. "Amortized Conditional Normalized Maximum Likelihood: Reliable Out of Distribution Uncertainty Estimation." ICML, 2021. [[Link]](https://arxiv.org/pdf/2011.02696.pdf)
+
 - M. Havasi, R. Jenatton, S. Fort, J. Z. Liu, J. Snoek, B. Lakshminarayanan, A. M. Dai, and D. Tran. "Training independent subnetworks for robust prediction." ICLR, 2021. [[Link]](https://arxiv.org/pdf/2010.06610.pdf) 
 
 - B. Adlam, J. Lee, L. Xiao, J. Pennington, J. Snoek. "Exploring the Uncertainty Properties of Neural Networks’ Implicit Priors in the Infinite-Width Limit". ICLR, 2021. [[Link]](https://openreview.net/forum?id=MjvduJCsE4)
