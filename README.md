@@ -64,7 +64,7 @@ This repo contains literature survey and implementation of baselines for predict
 
 #### Predictive uncertainty for general machine learning models
 
-- A. Angelopoulos, S. Bates, J. Malik, and M. I. Jordan. "Uncertainty Sets for Image Classifiers using Conformal Prediction." ICLR, 2021. [[Link]](https://arxiv.org/abs/2009.14193)   
+- A. Malinin, L. Prokhorenkova, A. Ustimenko. "Uncertainty in Gradient Boosting via Ensembles." ICLR, 2021. [[Link]](https://openreview.net/pdf?id=1Jv6b0Zq3qi)  
 
 - S. Feldman, S. Bates, Y. Romano. "Improving Conditional Coverage via Orthogonal Quantile Regression." arXiv preprint, 2021. [[Link]](https://arxiv.org/pdf/2101.02703.pdf)  
 
@@ -86,6 +86,18 @@ This repo contains literature survey and implementation of baselines for predict
 
 
 #### Predictive uncertainty for deep learning
+
+- P. Morales-Alvarez, D. Hernández-Lobato, R. Molina, J. M. Hernández-Lobato. "Activation-level uncertainty in deep neural networks." ICLR, 2021. [[Link]](https://openreview.net/pdf?id=UvBPbpvHRj-)  
+
+- A. Angelopoulos, S. Bates, J. Malik, and M. I. Jordan. "Uncertainty Sets for Image Classifiers using Conformal Prediction." ICLR, 2021. [[Link]](https://arxiv.org/abs/2009.14193) 
+
+- K. Patel, W. H. Beluch, B. Yang, M. Pfeiffer, D. Zhang. "Multi-Class Uncertainty Calibration via Mutual Information Maximization-based Binning." ICLR 2021. [[Link]](https://openreview.net/pdf?id=AICNpd8ke-m)   
+
+- B. Adlam, J. Lee, L. Xiao, J. Pennington, J. Snoek. "Exploring the Uncertainty Properties of Neural Networks’ Implicit Priors in the Infinite-Width Limit." ICLR 2021. [[Link]](https://openreview.net/pdf?id=MjvduJCsE4)  
+
+- A. Harakeh, S. L. Waslander. "Estimating and Evaluating Regression Predictive Uncertainty in Deep Object Detectors." ICLR 2021. [[Link]](https://openreview.net/pdf?id=YLewtnvKgR7)
+
+- J. Antoran, U. Bhatt, T. Adel, A. Weller, J. M. Hernández-Lobato. "Getting a CLUE: A Method for Explaining Uncertainty Estimates." ICLR 2021. [[Link]](https://openreview.net/pdf?id=XSLF1XFq5h)
 
 - A.-K. Kopetzki, B. Charpentier, D. Zügner, S. Giri, S. Günnemann. "Evaluating Robustness of Predictive Uncertainty Estimation: Are Dirichlet-based Models Reliable?" ICML 2021. [[Link]](https://arxiv.org/abs/2010.14986) 
 
@@ -168,7 +180,11 @@ This repo contains literature survey and implementation of baselines for predict
 
 #### Predictive uncertainty in sequential models
 
-- R. Wen, K. Torkkola, B. Narayanaswamy, and D. Madeka. "A Multi-horizon Quantile Recurrent Forecaster." arXiv, 2017. 
+- A. Malinin, M. Gales. "Uncertainty Estimation in Autoregressive Structured Prediction." ICLR, 2021. [[Link]](https://openreview.net/pdf?id=jN5y-zb5Q7m)
+
+- C. Wang, C. Lawrence, M. Niepert. "Uncertainty Estimation and Calibration with Finite-State Probabilistic RNNs." ICLR, 2021. [[Link]](https://openreview.net/pdf?id=9EKHN1jOlA)
+
+- R. Wen, K. Torkkola, B. Narayanaswamy, and D. Madeka. "A Multi-horizon Quantile Recurrent Forecaster." arXiv, 2017. [[Link]](https://arxiv.org/abs/1711.11053)
 
 - D. T. Mirikitani and N. Nikolaev. "Recursive bayesian recurrent neural networks for time-series modeling." IEEE Transactions on Neural Networks, 2009. [[Link]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5361332)
 
