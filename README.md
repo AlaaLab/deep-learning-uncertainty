@@ -64,6 +64,10 @@ This repo contains literature survey and implementation of baselines for predict
 
 #### Predictive uncertainty for general machine learning models
 
+- A. Angelopoulos, S. Bates, J. Malik, and M. I. Jordan. "Uncertainty Sets for Image Classifiers using Conformal Prediction." ICLR, 2021. [[Link]](https://arxiv.org/abs/2009.14193)   
+
+- S. Feldman, S. Bates, Y. Romano. "Improving Conditional Coverage via Orthogonal Quantile Regression." arXiv preprint, 2021. [[Link]](https://arxiv.org/pdf/2101.02703.pdf)  
+
 - S. Bates, A. Angelopoulos , L. Lei, J. Malik, and M. I. Jordan. "Distribution-Free, Risk-Controlling Prediction Sets." arXiv preprint, 2021. [[Link]](https://arxiv.org/pdf/2101.02703.pdf) 
 
 - S. Wager, T. Hastie, and B. Efron. "Confidence intervals for random forests: The jackknife and the infinitesimal jackknife." The Journal of Machine Learning Research, 2014. [[Link]](http://jmlr.org/papers/volume15/wager14a/wager14a.pdf)
