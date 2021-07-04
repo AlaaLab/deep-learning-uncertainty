@@ -107,7 +107,25 @@ This repo contains literature survey and implementation of baselines for predict
 
 - B. Adlam, J. Lee, L. Xiao, J. Pennington, J. Snoek. "Exploring the Uncertainty Properties of Neural Networks’ Implicit Priors in the Infinite-Width Limit". ICLR, 2021. [[Link]](https://openreview.net/forum?id=MjvduJCsE4)
 
-- A. N. Angelopoulos, S. Bates, T. Zrnic, M. I. Jordan. "Private Prediction Sets". arXiv, 2021. [[Link]](https://arxiv.org/abs/2102.06202)
+- A. N. Angelopoulos, S. Bates, T. Zrnic, M. I. Jordan. "Private Prediction Sets." arXiv, 2021. [[Link]](https://arxiv.org/abs/2102.06202)
+
+- B. Charpentier, D. Zügner, S. Günnemann. "Posterior Network: Uncertainty Estimation without OOD Samples via Density-Based Pseudo-Counts." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/0eac690d7059a8de4b48e90f14510391-Abstract.html) 
+
+- L. Meronen, C. Irwanto, A. Solin. "Stationary Activations for Uncertainty Calibration in Deep Learning." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/18a411989b47ed75a60ac69d9da05aa5-Abstract.html)  
+
+- F. Wenzel, J. Snoek, D. Tran, R. Jenatton. "Hyperparameter Ensembles for Robustness and Uncertainty Quantification." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/481fbfa59da2581098e841b7afc122f1-Abstract.html)   
+
+- J. Liu, Z. Lin, S. Padhy, D. Tran, T. Bedrax Weiss, B. Lakshminarayanan. "Simple and Principled Uncertainty Estimation with Deterministic Deep Learning via Distance Awareness." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/543e83748234f7cbab21aa0ade66565f-Abstract.html)   
+
+- J. Lindinger, D. Reeb, C. Lippert, B. Rakitsch. "Beyond the Mean-Field: Structured Deep Gaussian Processes Improve the Predictive Uncertainties." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/60a70bb05b08d6cd95deb3bdb750dce8-Abstract.html)   
+
+- J. Antoran, J. Allingham, J. M. Hernández-Lobato. "Depth Uncertainty in Neural Networks." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/781877bda0783aac5f1cf765c128b437-Abstract.html)    
+
+- M. Monteiro, L. Le Folgoc, D. C. de Castro, N. Pawlowski, B. Marques, K. Kamnitsas, M. van der Wilk, B. Glocker. "Stochastic Segmentation Networks: Modelling Spatially Correlated Aleatoric Uncertainty." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/95f8d9901ca8878e291552f001f67692-Abstract.html) 
+
+- W. Shi, X. Zhao, F. Chen, Q. Yu. "Multifaceted Uncertainty Estimation for Label-Efficient Deep Learning." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/c80d9ba4852b67046bee487bcd9802c0-Abstract.html) 
+
+- R. Krishnan, O. Tickoo. "Improving model calibration with accuracy versus uncertainty optimization." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/d3d9446802a44259755d38e6d163e820-Abstract.html) 
 
 - J. A. Leonard, M. A. Kramer, and L. H. Ungar. "A neural network architecture that computes its own reliability." Computers & chemical engineering, 1992. [[Link]](https://www.sciencedirect.com/science/article/pii/0098135492800358)
 
@@ -183,6 +201,8 @@ This repo contains literature survey and implementation of baselines for predict
 - A. Malinin, M. Gales. "Uncertainty Estimation in Autoregressive Structured Prediction." ICLR, 2021. [[Link]](https://openreview.net/pdf?id=jN5y-zb5Q7m)
 
 - C. Wang, C. Lawrence, M. Niepert. "Uncertainty Estimation and Calibration with Finite-State Probabilistic RNNs." ICLR, 2021. [[Link]](https://openreview.net/pdf?id=9EKHN1jOlA)
+
+- S. Sankaranarayanan, Y. Chou, E. Goubault, S. Putot. "Reasoning about Uncertainties in Discrete-Time Dynamical Systems using Polynomial Forms." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/ca886eb9edb61a42256192745c72cd79-Abstract.html)
 
 - R. Wen, K. Torkkola, B. Narayanaswamy, and D. Madeka. "A Multi-horizon Quantile Recurrent Forecaster." arXiv, 2017. [[Link]](https://arxiv.org/abs/1711.11053)
 
