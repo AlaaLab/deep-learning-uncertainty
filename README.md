@@ -87,6 +87,8 @@ This repo contains literature survey and implementation of baselines for predict
 
 #### Predictive uncertainty for deep learning
 
+- Abdar, Moloud, et al. "A review of uncertainty quantification in deep learning: Techniques, applications and challenges." Information Fusion, 2021. [[Link]](https://www.sciencedirect.com/science/article/pii/S1566253521001081?casa_token=J1xs2tpO6Q4AAAAA:zjT_-8Un4Sdw2x4Q5zeqmn_mZg40As5_El-dl70FahcALgWs785fEmmvOfHf1msvFe88bejk) 
+
 - Gawlikowski, Jakob, et al. "A Survey of Uncertainty in Deep Neural Networks." arXiv preprint, 2021. [[Link]](https://arxiv.org/pdf/2107.03342v1.pdf) 
 
 - P. Morales-Alvarez, D. Hernández-Lobato, R. Molina, J. M. Hernández-Lobato. "Activation-level uncertainty in deep neural networks." ICLR, 2021. [[Link]](https://openreview.net/pdf?id=UvBPbpvHRj-)  
