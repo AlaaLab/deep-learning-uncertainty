@@ -7,7 +7,7 @@ This repo contains literature survey and implementation of baselines for predict
 
 ## Literature survey
 
-#### Basic background for uncertainty estimation
+#### Basic background for uncertainty estimation 
 
 - B. Efron and R. Tibshirani. "Bootstrap methods for standard errors, confidence intervals, and other measures of statistical accuracy." Statistical science, 1986. [[Link]](https://www.jstor.org/stable/pdf/2245500.pdf)
 
@@ -17,27 +17,27 @@ This repo contains literature survey and implementation of baselines for predict
 
 - J. Robins and A. Van Der Vaart. "Adaptive nonparametric confidence sets." The Annals of Statistics, 2006. [[Link]](https://projecteuclid.org/download/pdfview_1/euclid.aos/1146576262)
 
-- V. Vovk, et al., "Cross-conformal predictive distributions." JMLR, 2018. [[Link]](http://proceedings.mlr.press/v91/vovk18a/vovk18a.pdf)
+- V. Vovk, et al., "Cross-conformal predictive distributions." JMLR, 2018. [[Link]](http://proceedings.mlr.press/v91/vovk18a/vovk18a.pdf) 
 
-- M. H Quenouille., "Approximate tests of correlation in time-series." Journal of the Royal Statistical Society, 1949. [[Link]](https://www.jstor.org/stable/2983696?seq=1#metadata_info_tab_contents)
+- M. H Quenouille., "Approximate tests of correlation in time-series." Journal of the Royal Statistical Society, 1949. [[Link]](https://www.jstor.org/stable/2983696?seq=1#metadata_info_tab_contents) 
 
-- M. H Quenouille. "Notes on bias in estimation." Biometrika, 1956. [[Link]](https://www.jstor.org/stable/2332914?seq=1#metadata_info_tab_contents)
+- M. H Quenouille. "Notes on bias in estimation." Biometrika, 1956. [[Link]](https://www.jstor.org/stable/2332914?seq=1#metadata_info_tab_contents) 
 
-- J. Tukey. "Bias and confidence in not quite large samples." Ann. Math. Statist, 1958.
+- J. Tukey. "Bias and confidence in not quite large samples." Ann. Math. Statist, 1958. 
 
-- R. G. Miller. "The jackknife–a review." Biometrika, 1974. [[Link]](https://www.jstor.org/stable/2334280?seq=1#metadata_info_tab_contents)
+- R. G. Miller. "The jackknife–a review." Biometrika, 1974. [[Link]](https://www.jstor.org/stable/2334280?seq=1#metadata_info_tab_contents) 
 
-- B. Efron. "Bootstrap methods: Another look at the jackknife." Ann. Statist., 1979. [[Link]](https://projecteuclid.org/euclid.aos/1176344552)
+- B. Efron. "Bootstrap methods: Another look at the jackknife." Ann. Statist., 1979. [[Link]](https://projecteuclid.org/euclid.aos/1176344552) 
 
-- R. A Stine. "Bootstrap prediction intervals for regression." Journal of the American Statistical Association, 1985. [[Link]](https://amstat.tandfonline.com/doi/abs/10.1080/01621459.1985.10478220)
+- R. A Stine. "Bootstrap prediction intervals for regression." Journal of the American Statistical Association, 1985. [[Link]](https://amstat.tandfonline.com/doi/abs/10.1080/01621459.1985.10478220) 
 
-- R. F. Barber, E. J. Candes, A. Ramdas, and R. J. Tibshirani. "Conformal prediction under covariate shift." arXiv preprint arXiv:1904.06019, 2019. [[Link]](https://arxiv.org/pdf/1904.06019.pdf)
+- R. F. Barber, E. J. Candes, A. Ramdas, and R. J. Tibshirani. "Conformal prediction under covariate shift." arXiv preprint arXiv:1904.06019, 2019. [[Link]](https://arxiv.org/pdf/1904.06019.pdf) 
 
-- R. F. Barber, E. J. Candes, A. Ramdas, and R. J. Tibshirani. "The limits of distribution-free conditional predictive inference." arXiv preprint arXiv:1903.04684, 2019b. [[Link]](https://arxiv.org/pdf/1903.04684.pdf)
+- R. F. Barber, E. J. Candes, A. Ramdas, and R. J. Tibshirani. "The limits of distribution-free conditional predictive inference." arXiv preprint arXiv:1903.04684, 2019b. [[Link]](https://arxiv.org/pdf/1903.04684.pdf) 
 
-- J. Lei, M. G'Sell, A. Rinaldo, R. J. Tibshirani, and L. Wasserman. "Distribution-free predictive inference for regression." Journal of the American Statistical Association, 2018. [[Link]](https://www.tandfonline.com/doi/pdf/10.1080/01621459.2017.1307116)
+- J. Lei, M. G'Sell, A. Rinaldo, R. J. Tibshirani, and L. Wasserman. "Distribution-free predictive inference for regression." Journal of the American Statistical Association, 2018. [[Link]](https://www.tandfonline.com/doi/pdf/10.1080/01621459.2017.1307116) 
 
-- R. Giordano, M. I. Jordan, and T. Broderick. "A Higher-Order Swiss Army Infinitesimal Jackknife." arXiv, 2019. [[Link]](https://arxiv.org/pdf/1907.12116.pdf)
+- R. Giordano, M. I. Jordan, and T. Broderick. "A Higher-Order Swiss Army Infinitesimal Jackknife." arXiv, 2019. [[Link]](https://arxiv.org/pdf/1907.12116.pdf) 
 
 - P. W. Koh, K. Ang, H. H. K. Teo, and P. Liang. "On the Accuracy of Influence Functions for Measuring Group Effects." arXiv, 2019. [[Link]](https://arxiv.org/pdf/1905.13289.pdf)  
 
@@ -47,11 +47,11 @@ This repo contains literature survey and implementation of baselines for predict
 
 - R. Giordano, W. Stephenson, R. Liu, M. I. Jordan, and T. Broderick. "A Swiss Army Infinitesimal Jackknife." arXiv preprint arXiv:1806.00550, 2018. [[Link]](https://arxiv.org/pdf/1806.00550.pdf)  
 
-- P. W. Koh, and P. Liang. "Understanding black-box predictions via influence functions." ICML, 2017. [[Link]](https://dl.acm.org/citation.cfm?id=3305576)
+- P. W. Koh, and P. Liang. "Understanding black-box predictions via influence functions." ICML, 2017. [[Link]](https://dl.acm.org/citation.cfm?id=3305576) 
 
-- S. Wager and S. Athey. "Estimation and inference of heterogeneous treatment effects using random forests." Journal of the American Statistical Association, 2018. [[Link]](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1319839)
+- S. Wager and S. Athey. "Estimation and inference of heterogeneous treatment effects using random forests." Journal of the American Statistical Association, 2018. [[Link]](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1319839) 
 
-- J. F. Lawless, and M. Fredette. "Frequentist prediction intervals and predictive distributions." Biometrika, 2005. [[Link]](https://ideas.repec.org/a/oup/biomet/v92y2005i3p529-542.html)
+- J. F. Lawless, and M. Fredette. "Frequentist prediction intervals and predictive distributions." Biometrika, 2005. [[Link]](https://ideas.repec.org/a/oup/biomet/v92y2005i3p529-542.html) 
 
 - F. R. Hampel, E. M. Ronchetti, P. J. Rousseeuw, and W. A. Stahel. "Robust statistics: the approach based on influence functions." John Wiley and Sons, 2011. [[Link]](https://www.wiley.com/en-us/Robust+Statistics%3A+The+Approach+Based+on+Influence+Functions-p-9781118150689)
 
@@ -68,7 +68,7 @@ This repo contains literature survey and implementation of baselines for predict
 
 - S. Feldman, S. Bates, Y. Romano. "Improving Conditional Coverage via Orthogonal Quantile Regression." arXiv preprint, 2021. [[Link]](https://arxiv.org/pdf/2101.02703.pdf)  
 
-- S. Bates, A. Angelopoulos , L. Lei, J. Malik, and M. I. Jordan. "Distribution-Free, Risk-Controlling Prediction Sets." arXiv preprint, 2021. [[Link]](https://arxiv.org/pdf/2101.02703.pdf)
+- S. Bates, A. Angelopoulos , L. Lei, J. Malik, and M. I. Jordan. "Distribution-Free, Risk-Controlling Prediction Sets." arXiv preprint, 2021. [[Link]](https://arxiv.org/pdf/2101.02703.pdf) 
 
 - S. Wager, T. Hastie, and B. Efron. "Confidence intervals for random forests: The jackknife and the infinitesimal jackknife." The Journal of Machine Learning Research, 2014. [[Link]](http://jmlr.org/papers/volume15/wager14a/wager14a.pdf)
 
@@ -76,26 +76,26 @@ This repo contains literature survey and implementation of baselines for predict
 
 - J. Platt. "Probabilistic outputs for support vector machines and comparisons to regularized likelihood methods." Advances in large margin classifiers, 1999. [[Link]](https://www.researchgate.net/profile/John_Platt/publication/2594015_Probabilistic_Outputs_for_Support_Vector_Machines_and_Comparisons_to_Regularized_Likelihood_Methods/links/004635154cff5262d6000000.pdf)
 
-- A. Abadie, S. Athey, G. Imbens. "Sampling-based vs. design-based uncertainty in regression analysis." arXiv preprint (arXiv:1706.01778), 2017. [[Link]](https://arxiv.org/pdf/1706.01778.pdf)
+- A. Abadie, S. Athey, G. Imbens. "Sampling-based vs. design-based uncertainty in regression analysis." arXiv preprint (arXiv:1706.01778), 2017. [[Link]](https://arxiv.org/pdf/1706.01778.pdf) 
 
-- T. Duan, A. Avati, D. Y. Ding, S. Basu, Andrew Y. Ng, and A. Schuler. "NGBoost: Natural Gradient Boosting for Probabilistic Prediction." arXiv preprint, 2019. [[Link]](https://arxiv.org/pdf/1910.03225.pdf)
+- T. Duan, A. Avati, D. Y. Ding, S. Basu, Andrew Y. Ng, and A. Schuler. "NGBoost: Natural Gradient Boosting for Probabilistic Prediction." arXiv preprint, 2019. [[Link]](https://arxiv.org/pdf/1910.03225.pdf) 
 
 - V. Franc, and D. Prusa. "On Discriminative Learning of Prediction Uncertainty." ICML, 2019. [[Link]](http://proceedings.mlr.press/v97/franc19a/franc19a.pdf)
 
-- Y. Romano, M. Sesia, and E. J. Candès. "Classification with Valid and Adaptive Coverage." arXiv preprint, 2020. [[Link]](https://arxiv.org/pdf/2006.02544.pdf)
+- Y. Romano, M. Sesia, and E. J. Candès. "Classification with Valid and Adaptive Coverage." arXiv preprint, 2020. [[Link]](https://arxiv.org/pdf/2006.02544.pdf) 
 
 
 #### Predictive uncertainty for deep learning
 
 - I. Osband, Z. Wen, M. Asghari, M. Ibrahimi, X. Lu, and B. Van Roy "Epistemic Neural Networks." arXiv, 2021. [[Link]](https://arxiv.org/pdf/2107.08924.pdf)
 
-- Abdar, Moloud, et al. "A review of uncertainty quantification in deep learning: Techniques, applications and challenges." Information Fusion, 2021. [[Link]](https://www.sciencedirect.com/science/article/pii/S1566253521001081?casa_token=J1xs2tpO6Q4AAAAA:zjT_-8Un4Sdw2x4Q5zeqmn_mZg40As5_El-dl70FahcALgWs785fEmmvOfHf1msvFe88bejk)
+- Abdar, Moloud, et al. "A review of uncertainty quantification in deep learning: Techniques, applications and challenges." Information Fusion, 2021. [[Link]](https://www.sciencedirect.com/science/article/pii/S1566253521001081?casa_token=J1xs2tpO6Q4AAAAA:zjT_-8Un4Sdw2x4Q5zeqmn_mZg40As5_El-dl70FahcALgWs785fEmmvOfHf1msvFe88bejk) 
 
-- Gawlikowski, Jakob, et al. "A Survey of Uncertainty in Deep Neural Networks." arXiv preprint, 2021. [[Link]](https://arxiv.org/pdf/2107.03342v1.pdf)
+- Gawlikowski, Jakob, et al. "A Survey of Uncertainty in Deep Neural Networks." arXiv preprint, 2021. [[Link]](https://arxiv.org/pdf/2107.03342v1.pdf) 
 
 - P. Morales-Alvarez, D. Hernández-Lobato, R. Molina, J. M. Hernández-Lobato. "Activation-level uncertainty in deep neural networks." ICLR, 2021. [[Link]](https://openreview.net/pdf?id=UvBPbpvHRj-)  
 
-- A. Angelopoulos, S. Bates, J. Malik, and M. I. Jordan. "Uncertainty Sets for Image Classifiers using Conformal Prediction." ICLR, 2021. [[Link]](https://arxiv.org/abs/2009.14193)
+- A. Angelopoulos, S. Bates, J. Malik, and M. I. Jordan. "Uncertainty Sets for Image Classifiers using Conformal Prediction." ICLR, 2021. [[Link]](https://arxiv.org/abs/2009.14193) 
 
 - K. Patel, W. H. Beluch, B. Yang, M. Pfeiffer, D. Zhang. "Multi-Class Uncertainty Calibration via Mutual Information Maximization-based Binning." ICLR 2021. [[Link]](https://openreview.net/pdf?id=AICNpd8ke-m)   
 
@@ -105,19 +105,19 @@ This repo contains literature survey and implementation of baselines for predict
 
 - J. Antoran, U. Bhatt, T. Adel, A. Weller, J. M. Hernández-Lobato. "Getting a CLUE: A Method for Explaining Uncertainty Estimates." ICLR 2021. [[Link]](https://openreview.net/pdf?id=XSLF1XFq5h)
 
-- A.-K. Kopetzki, B. Charpentier, D. Zügner, S. Giri, S. Günnemann. "Evaluating Robustness of Predictive Uncertainty Estimation: Are Dirichlet-based Models Reliable?" ICML 2021. [[Link]](https://arxiv.org/abs/2010.14986)
+- A.-K. Kopetzki, B. Charpentier, D. Zügner, S. Giri, S. Günnemann. "Evaluating Robustness of Predictive Uncertainty Estimation: Are Dirichlet-based Models Reliable?" ICML 2021. [[Link]](https://arxiv.org/abs/2010.14986) 
 
 - A. Zhou and S. Levine. "Amortized Conditional Normalized Maximum Likelihood: Reliable Out of Distribution Uncertainty Estimation." ICML, 2021. [[Link]](https://arxiv.org/pdf/2011.02696.pdf)
 
-- M. Havasi, R. Jenatton, S. Fort, J. Z. Liu, J. Snoek, B. Lakshminarayanan, A. M. Dai, and D. Tran. "Training independent subnetworks for robust prediction." ICLR, 2021. [[Link]](https://arxiv.org/pdf/2010.06610.pdf)
+- M. Havasi, R. Jenatton, S. Fort, J. Z. Liu, J. Snoek, B. Lakshminarayanan, A. M. Dai, and D. Tran. "Training independent subnetworks for robust prediction." ICLR, 2021. [[Link]](https://arxiv.org/pdf/2010.06610.pdf) 
 
 - B. Adlam, J. Lee, L. Xiao, J. Pennington, J. Snoek. "Exploring the Uncertainty Properties of Neural Networks’ Implicit Priors in the Infinite-Width Limit". ICLR, 2021. [[Link]](https://openreview.net/forum?id=MjvduJCsE4)
 
 - A. N. Angelopoulos, S. Bates, T. Zrnic, M. I. Jordan. "Private Prediction Sets." arXiv, 2021. [[Link]](https://arxiv.org/abs/2102.06202)
 
-- B. Charpentier, D. Zügner, S. Günnemann. "Posterior Network: Uncertainty Estimation without OOD Samples via Density-Based Pseudo-Counts." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/0eac690d7059a8de4b48e90f14510391-Abstract.html)
+- B. Charpentier, D. Zügner, S. Günnemann. "Posterior Network: Uncertainty Estimation without OOD Samples via Density-Based Pseudo-Counts." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/0eac690d7059a8de4b48e90f14510391-Abstract.html) 
 
-- Carvalho EDC, Clark R, Nicastro A, et al., Scalable uncertainty for computer vision with functional variationalinference, CVPR 2020, IEEE, Pages:12003-12013. [[Link]] (https://openaccess.thecvf.com/content_CVPR_2020/html/Carvalho_Scalable_Uncertainty_for_Computer_Vision_With_Functional_Variational_Inference_CVPR_2020_paper.html)
+- Carvalho EDC, Clark R, Nicastro A, et al., Scalable uncertainty for computer vision with functional variationalinference, CVPR 2020, IEEE, Pages:12003-12013. [[Link]](https://openaccess.thecvf.com/content_CVPR_2020/html/Carvalho_Scalable_Uncertainty_for_Computer_Vision_With_Functional_Variational_Inference_CVPR_2020_paper.html)
 
 - L. Meronen, C. Irwanto, A. Solin. "Stationary Activations for Uncertainty Calibration in Deep Learning." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/18a411989b47ed75a60ac69d9da05aa5-Abstract.html)  
 
@@ -129,15 +129,15 @@ This repo contains literature survey and implementation of baselines for predict
 
 - J. Antoran, J. Allingham, J. M. Hernández-Lobato. "Depth Uncertainty in Neural Networks." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/781877bda0783aac5f1cf765c128b437-Abstract.html)    
 
-- M. Monteiro, L. Le Folgoc, D. C. de Castro, N. Pawlowski, B. Marques, K. Kamnitsas, M. van der Wilk, B. Glocker. "Stochastic Segmentation Networks: Modelling Spatially Correlated Aleatoric Uncertainty." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/95f8d9901ca8878e291552f001f67692-Abstract.html)
+- M. Monteiro, L. Le Folgoc, D. C. de Castro, N. Pawlowski, B. Marques, K. Kamnitsas, M. van der Wilk, B. Glocker. "Stochastic Segmentation Networks: Modelling Spatially Correlated Aleatoric Uncertainty." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/95f8d9901ca8878e291552f001f67692-Abstract.html) 
 
-- W. Shi, X. Zhao, F. Chen, Q. Yu. "Multifaceted Uncertainty Estimation for Label-Efficient Deep Learning." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/c80d9ba4852b67046bee487bcd9802c0-Abstract.html)
+- W. Shi, X. Zhao, F. Chen, Q. Yu. "Multifaceted Uncertainty Estimation for Label-Efficient Deep Learning." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/c80d9ba4852b67046bee487bcd9802c0-Abstract.html) 
 
-- R. Krishnan, O. Tickoo. "Improving model calibration with accuracy versus uncertainty optimization." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/d3d9446802a44259755d38e6d163e820-Abstract.html)
+- R. Krishnan, O. Tickoo. "Improving model calibration with accuracy versus uncertainty optimization." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/d3d9446802a44259755d38e6d163e820-Abstract.html) 
 
 - J. A. Leonard, M. A. Kramer, and L. H. Ungar. "A neural network architecture that computes its own reliability." Computers & chemical engineering, 1992. [[Link]](https://www.sciencedirect.com/science/article/pii/0098135492800358)
 
-- C. Blundell, J. Cornebise, K. Kavukcuoglu, and D. Wierstra. "Weight uncertainty in neural networks." ICML, 2015. [[Link]](https://arxiv.org/pdf/1505.05424.pdf)
+- C. Blundell, J. Cornebise, K. Kavukcuoglu, and D. Wierstra. "Weight uncertainty in neural networks." ICML, 2015. [[Link]](https://arxiv.org/pdf/1505.05424.pdf) 
 
 - B. Lakshminarayanan, A. Pritzel, and C. Blundell. "Simple and scalable predictive uncertainty estimation using deep ensembles." NeurIPS, 2017. [[Link]](http://papers.nips.cc/paper/7219-simple-and-scalable-predictive-uncertainty-estimation-using-deep-ensembles.pdf)
 
@@ -151,9 +151,9 @@ This repo contains literature survey and implementation of baselines for predict
 
 - K. Lee, H. Lee, K. Lee, and J. Shin. "Training Confidence-calibrated classifiers for detecting out-of-distribution samples." ICLR, 2018. [[Link]](https://openreview.net/forum?id=ryiAv2xAZ)
 
-- P. Schulam and S. Saria "Can You Trust This Prediction? Auditing Pointwise Reliability After Learning." AISTATS, 2019. [[Link]](http://proceedings.mlr.press/v89/schulam19a/schulam19a.pdf)
+- P. Schulam and S. Saria "Can You Trust This Prediction? Auditing Pointwise Reliability After Learning." AISTATS, 2019. [[Link]](http://proceedings.mlr.press/v89/schulam19a/schulam19a.pdf) 
 
-- A. Malinin and M. Gales. "Predictive uncertainty estimation via prior networks." NeurIPS, 2018. [[Link]](http://papers.nips.cc/paper/7936-predictive-uncertainty-estimation-via-prior-networks.pdf)
+- A. Malinin and M. Gales. "Predictive uncertainty estimation via prior networks." NeurIPS, 2018. [[Link]](http://papers.nips.cc/paper/7936-predictive-uncertainty-estimation-via-prior-networks.pdf) 
 
 - D. Hendrycks, M. Mazeika, and T. G. Dietterich. "Deep anomaly detection with outlier exposure." arXiv preprint arXiv:1812.04606, 2018. [[Link]](https://arxiv.org/pdf/1812.04606.pdf)
 
@@ -169,19 +169,19 @@ This repo contains literature survey and implementation of baselines for predict
 
 - D. Hendrycks, et al. "Using Self-Supervised Learning Can Improve Model Robustness and Uncertainty." arXiv preprint arXiv:1906.12340, 2019. [[Link]](https://arxiv.org/pdf/1906.12340.pdf)
 
-- A. Kumar, P. Liang, T. Ma. "Verified Uncertainty Calibration." arXiv preprint, 2019. [[Link]](https://arxiv.org/abs/1909.10155)
+- A. Kumar, P. Liang, T. Ma. "Verified Uncertainty Calibration." arXiv preprint, 2019. [[Link]](https://arxiv.org/abs/1909.10155) 
 
-- I. Osband, C. Blundell, A. Pritzel, and B. Van Roy. "Deep Exploration via Bootstrapped DQN." NeurIPS, 2016. [[Link]](https://papers.nips.cc/paper/6501-deep-exploration-via-bootstrapped-dqn.pdf)
+- I. Osband, C. Blundell, A. Pritzel, and B. Van Roy. "Deep Exploration via Bootstrapped DQN." NeurIPS, 2016. [[Link]](https://papers.nips.cc/paper/6501-deep-exploration-via-bootstrapped-dqn.pdf) 
 
-- I. Osband. "Risk versus Uncertainty in Deep Learning: Bayes, Bootstrap and the Dangers of Dropout." NeurIPS Workshop, 2016. [[Link]](http://bayesiandeeplearning.org/2016/papers/BDL_4.pdf)
+- I. Osband. "Risk versus Uncertainty in Deep Learning: Bayes, Bootstrap and the Dangers of Dropout." NeurIPS Workshop, 2016. [[Link]](http://bayesiandeeplearning.org/2016/papers/BDL_4.pdf) 
 
 - J. Postels et al. "Sampling-free Epistemic Uncertainty Estimation Using Approximated Variance Propagation." ICCV, 2019. [[Link]](http://openaccess.thecvf.com/content_ICCV_2019/papers/Postels_Sampling-Free_Epistemic_Uncertainty_Estimation_Using_Approximated_Variance_Propagation_ICCV_2019_paper.pdf)  
 
-- A. Kendall and Y. Gal. "What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?" NeurIPS, 2017. [[Link]](https://arxiv.org/pdf/1703.04977.pdf)
+- A. Kendall and Y. Gal. "What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?" NeurIPS, 2017. [[Link]](https://arxiv.org/pdf/1703.04977.pdf) 
 
-- N. Tagasovska and D. Lopez-Paz. "Single-Model Uncertainties for Deep Learning." NeurIPS, 2019. [[Link]](https://papers.nips.cc/paper/8870-single-model-uncertainties-for-deep-learning.pdf)
+- N. Tagasovska and D. Lopez-Paz. "Single-Model Uncertainties for Deep Learning." NeurIPS, 2019. [[Link]](https://papers.nips.cc/paper/8870-single-model-uncertainties-for-deep-learning.pdf) 
 
-- A. Der Kiureghian and O. Ditlevsen. "Aleatory or Epistemic? Does it Matter?." Structural Safety, 2009. [[Link]](https://www.sciencedirect.com/science/article/pii/S0167473008000556)
+- A. Der Kiureghian and O. Ditlevsen. "Aleatory or Epistemic? Does it Matter?." Structural Safety, 2009. [[Link]](https://www.sciencedirect.com/science/article/pii/S0167473008000556) 
 
 - D. Hafner, D. Tran, A. Irpan, T. Lillicrap, and J. Davidson. "Reliable uncertainty estimates in deep neural networks using noise contrastive priors." arXiv, 2018. [[Link]](https://arxiv.org/pdf/1807.09289.pdf)
 
@@ -220,4 +220,5 @@ This repo contains literature survey and implementation of baselines for predict
 
 - P. L. McDermott, C. K. Wikle. "Bayesian Recurrent Neural Network Models for Forecasting and Quantifying Uncertainty in Spatial-Temporal Data." Entropy, 2019. [[Link]](https://www.mdpi.com/1099-4300/21/2/184)
 
-- Y. Gal, Z. Ghahramani. "A theoretically grounded application of dropout in recurrent neural networks." NeurIPS, 2016. [[Link]](https://papers.nips.cc/paper/6241-a-theoretically-grounded-application-of-dropout-in-recurrent-neural-networks.pdf)
+- Y. Gal, Z. Ghahramani. "A theoretically grounded application of dropout in recurrent neural networks." NeurIPS, 2016. [[Link]](https://papers.nips.cc/paper/6241-a-theoretically-grounded-application-of-dropout-in-recurrent-neural-networks.pdf) 
+
