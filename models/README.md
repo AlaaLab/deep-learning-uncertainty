@@ -1,6 +1,12 @@
 # baselines
 
+For all synthetic exp: compare coverage and efficiency vs number of samples
+
 Metric: error rate withing subgroups
+
+(TODO: implement error rate metric per subgroup)
+(TODO: APIs for all baselines - Run experiment(baseline, data) API)
+(TODO: Run experiments for all baselines in each setting)
 
 - Standard CP [Done]
 - Quantile regression [Done]
@@ -15,3 +21,5 @@ Metric: error rate withing subgroups
 Metric: efficiency within subgroups
 
 TCP-RIF vs TCP-baselines
+
+Data sets: Synthetic / UCI / Breast cancer
