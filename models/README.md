@@ -12,6 +12,6 @@ Metric: error rate withing subgroups
 - Locally adaptive conformal prediction: https://github.com/yromano/cqr 
 - Orthogonal quantile regression https://github.com/Shai128/oqr
 
-Metric: efficiecy within subgroups
+Metric: efficiency within subgroups
 
 TCP-RIF vs TCP-baselines
