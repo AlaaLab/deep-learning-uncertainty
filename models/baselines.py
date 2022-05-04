@@ -1,6 +1,7 @@
 import numpy as np 
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_pinball_loss, mean_squared_error
 from sklearn.neural_network import MLPRegressor
 from numpy.random import default_rng
 from sklearn.neighbors import KernelDensity
@@ -39,6 +40,32 @@ class ConformalBase:
     def predict(self, x_test): 
         raise NotImplementedError()
     
+class QR(ConformalBase): 
+
+    def __init__(self, alpha=0.1): 
+        super().__init__(alpha)
+    
+    def fit(self, x_train, y_train): 
+        self.all_models    = {}
+        common_params = dict(
+            learning_rate=0.05,
+            n_estimators=200,
+            max_depth=2,
+            min_samples_leaf=9,
+            min_samples_split=9,
+        )
+        for alpha_ in [self.alpha/2, 1-(self.alpha/2)]:
+            gbr = GradientBoostingRegressor(loss="quantile", alpha=alpha_, **common_params)
+            self.all_models["q %1.2f" % alpha_] = \
+                gbr.fit(x_train.reshape((-1, 1)), np.array(y_train).reshape((-1, 1)))
+        
+    def calibrate(self, x_calibrate, y_calibrate): 
+        raise NotImplementedError('No conformalization in Quantile Regression.')
+
+    def predict(self, x_test): 
+        Quant_lo = self.all_models['q 0.05'].predict(x_test.reshape((-1, 1)))
+        Quant_up = self.all_models['q 0.95'].predict(x_test.reshape((-1, 1)))
+        return [Quant_lo, Quant_up] # check if this is the same format as the other return statements
 
 class CQR(ConformalBase): 
 
