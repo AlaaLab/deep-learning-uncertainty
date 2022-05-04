@@ -9,7 +9,7 @@ Metric: error rate withing subgroups
 * (TODO: Run experiments for all baselines in each setting)
 
 - Standard CP [Done]
-- Quantile regression [Done]
+- Quantile regression [Done~]
 - Local CP (CP within reported subgroups) [Done]
 - Conformalized quantile regression: https://github.com/yromano/cqr [Done~]
 - Conditional histograms: https://github.com/msesia/chr [Done~]
