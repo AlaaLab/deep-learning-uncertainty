@@ -12,19 +12,17 @@ from cqr.nonconformist.nc import RegressorNc
 from cqr.nonconformist.cp import IcpRegressor
 from cqr.nonconformist.nc import QuantileRegErrFunc
 
+# chr imports 
+from chr.chr.black_boxes import QNet, QRF
+from chr.chr.black_boxes_r import QBART
+from chr.chr.methods import CHR
+
 class ConformalBase: 
     '''
         Implementation inspired from: 
             https://github.com/yromano/cqr/blob/master/cqr_synthetic_data_example_1.ipynb
     '''
-    def _get_model_dict(self): 
-        return { 
-            'boost': GradientBoostingRegressor()
-        }
-
-
     def __init__(self, alpha=0.1):
-        model_dict = self._get_model_dict
         self.alpha = alpha 
 
     def fit(self, x_train, y_train):
@@ -67,6 +65,9 @@ class CQR(ConformalBase):
         self.model = IcpRegressor(nc)
 
     def fit(self, x_train, y_train): 
+        ''' 
+            y_train: residuals from single black box model
+        '''
         self.model.fit(x_train, y_train)
 
     def calibrate(self, x_calibrate, y_calibrate): 
@@ -74,3 +75,29 @@ class CQR(ConformalBase):
 
     def predict(self, x_test): 
         return self.model.predict(x_test, significance=self.alpha)
+
+
+class CondHist(ConformalBase): 
+
+    def __init__(self, alpha=0.1): 
+        super().__init__(alpha)        
+        grid_quantiles = np.arange(0.01,1.0,0.01)
+        self.bbox = QNet(grid_quantiles, 1, no_crossing=True, batch_size=1000, dropout=0.1,
+            num_epochs=10000, learning_rate=0.0005, num_hidden=256, calibrate=0)
+
+    def fit(self, x_train, y_train):
+        ''' 
+            y_train: residuals from single black box model
+        ''' 
+        self.bbox.fit(x_train, y_train)
+
+    def calibrate(self, x_calibrate, y_calibrate): 
+        # Initialize and calibrate the new method
+        self.chr = CHR(self.bbox, ymin=-3, ymax=20, y_steps=200, delta_alpha=0.001, randomize=True)
+        self.chr.calibrate(x_calibrate, y_calibrate, self.alpha)
+
+    def predict(self, x_test): 
+        return self.chr.predict(x_test)
+
+
+
