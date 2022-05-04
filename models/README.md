@@ -15,7 +15,7 @@ Metric: error rate withing subgroups
 - Conditional histograms: https://github.com/msesia/chr [Done~]
 - LCP (https://arxiv.org/abs/2106.08460) 
 - Baselines from: https://github.com/msesia/cqr-comparison 
-- Locally adaptive conformal prediction: https://github.com/yromano/cqr 
+- Locally adaptive conformal prediction: https://github.com/yromano/cqr [Done~]
 - Orthogonal quantile regression https://github.com/Shai128/oqr
 
 Metric: efficiency within subgroups
