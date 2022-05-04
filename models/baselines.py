@@ -1,5 +1,6 @@
 import numpy as np 
 from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.neural_network import MLPRegressor
 from numpy.random import default_rng
 from sklearn.neighbors import KernelDensity
@@ -16,6 +17,10 @@ from cqr.nonconformist.nc import QuantileRegErrFunc
 from chr.chr.black_boxes import QNet, QRF
 from chr.chr.black_boxes_r import QBART
 from chr.chr.methods import CHR
+
+# locally adaptive conformal prediction imports
+from cqr.nonconformist.nc import AbsErrorErrFunc
+from cqr.nonconformist.nc import RegressorNormalizer
 
 class ConformalBase: 
     '''
@@ -62,19 +67,19 @@ class CQR(ConformalBase):
                                                            quantiles=quantiles,
                                                            params=params_qforest)
         nc  = RegressorNc(quantile_estimator, QuantileRegErrFunc())
-        self.model = IcpRegressor(nc)
+        self.icp = IcpRegressor(nc)
 
     def fit(self, x_train, y_train): 
         ''' 
             y_train: residuals from single black box model
         '''
-        self.model.fit(x_train, y_train)
+        self.icp.fit(x_train, y_train)
 
     def calibrate(self, x_calibrate, y_calibrate): 
-        self.model.calibrate(x_calibrate, y_calibrate)
+        self.icp.calibrate(x_calibrate, y_calibrate)
 
     def predict(self, x_test): 
-        return self.model.predict(x_test, significance=self.alpha)
+        return self.icp.predict(x_test, significance=self.alpha)
 
 
 class CondHist(ConformalBase): 
@@ -99,5 +104,45 @@ class CondHist(ConformalBase):
     def predict(self, x_test): 
         return self.chr.predict(x_test)
 
+class LACP(ConformalBase): 
 
+    def __init__(self, alpha=0.1): 
+        super().__init__(alpha)
+        n_estimators = 100 
+        min_samples_leaf = 40 
+        max_features = 1 
+        random_state = 0
+        # quantiles = [alpha*10/2, 100-(alpha*10/2)]         
+        # define the conditonal mean estimator as random forests (used to predict the labels)
+        mean_estimator = RandomForestRegressor(n_estimators=n_estimators,
+                                            min_samples_leaf=min_samples_leaf,
+                                            max_features=max_features,
+                                            random_state=random_state)
+
+        # define the MAD estimator as random forests (used to scale the absolute residuals)
+        mad_estimator = RandomForestRegressor(n_estimators=n_estimators,
+                                            min_samples_leaf=min_samples_leaf,
+                                            max_features=max_features,
+                                            random_state=random_state)
+
+        # define a conformal normalizer object that uses the two regression functions.
+        # The nonconformity score is absolute residual error
+        normalizer = RegressorNormalizer(mean_estimator,
+                                        mad_estimator,
+                                        AbsErrorErrFunc())
+
+        # define the final local conformal object 
+        nc = RegressorNc(mean_estimator, AbsErrorErrFunc(), normalizer)
+
+        # build the split local conformal object
+        self.icp = IcpRegressor(nc)
+    
+    def fit(self, x_train, y_train): 
+        self.icp.fit(x_train, y_train)
+    
+    def calibrate(self, x_calibrate, y_calibrate):
+        self.icp.calibrate(x_calibrate, y_calibrate)
+
+    def predict(self, x_test): 
+        return self.icp.predict(x_test, significance=self.alpha)
 
