@@ -2,6 +2,7 @@ import numpy as np
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_pinball_loss, mean_squared_error
+from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPRegressor
 from numpy.random import default_rng
 from sklearn.neighbors import KernelDensity
@@ -31,10 +32,7 @@ class ConformalBase:
     def __init__(self, alpha=0.1):
         self.alpha = alpha 
 
-    def fit(self, x_train, y_train):
-        raise NotImplementedError()
-
-    def calibrate(self, x_calibrate, y_calibrate): 
+    def fit(self, x_calibrate, y_calibrate, frac=0.7, random_state=10): 
         raise NotImplementedError()
 
     def predict(self, x_test): 
@@ -45,7 +43,7 @@ class QR(ConformalBase):
     def __init__(self, alpha=0.1): 
         super().__init__(alpha)
     
-    def fit(self, x_train, y_train): 
+    def fit(self, x_calibrate, y_calibrate): 
         self.all_models    = {}
         common_params = dict(
             learning_rate=0.05,
@@ -57,10 +55,7 @@ class QR(ConformalBase):
         for alpha_ in [self.alpha/2, 1-(self.alpha/2)]:
             gbr = GradientBoostingRegressor(loss="quantile", alpha=alpha_, **common_params)
             self.all_models["q %1.2f" % alpha_] = \
-                gbr.fit(x_train.reshape((-1, 1)), np.array(y_train).reshape((-1, 1)))
-        
-    def calibrate(self, x_calibrate, y_calibrate): 
-        raise NotImplementedError('No conformalization in Quantile Regression.')
+                gbr.fit(x_calibrate.reshape((-1, 1)), np.array(y_calibrate).reshape((-1, 1)))
 
     def predict(self, x_test): 
         Quant_lo = self.all_models['q 0.05'].predict(x_test.reshape((-1, 1)))
@@ -96,16 +91,20 @@ class CQR(ConformalBase):
         nc  = RegressorNc(quantile_estimator, QuantileRegErrFunc())
         self.icp = IcpRegressor(nc)
 
-    def fit(self, x_train, y_train): 
-        ''' 
-            y_train: residuals from single black box model
+    def fit(self, x_calibrate, y_calibrate, frac=0.7, random_state=10):
         '''
+            * split data into train and calibrate
+            * y_calibrate contains residuals 
+            step 1: fit model on training data + training residuals 
+            step 2: call calibrate  
+        '''
+        x_train, x_calib, y_train, y_calib = \
+            train_test_split(x_calibrate, y_calibrate, test_size=1-frac, random_state=random_state)
         self.icp.fit(x_train, y_train)
-
-    def calibrate(self, x_calibrate, y_calibrate): 
-        self.icp.calibrate(x_calibrate, y_calibrate)
+        self.icp.calibrate(x_calib, y_calib)
 
     def predict(self, x_test): 
+        # return both predictions and interval for each prediction
         return self.icp.predict(x_test, significance=self.alpha)
 
 
@@ -117,16 +116,19 @@ class CondHist(ConformalBase):
         self.bbox = QNet(grid_quantiles, 1, no_crossing=True, batch_size=1000, dropout=0.1,
             num_epochs=10000, learning_rate=0.0005, num_hidden=256, calibrate=0)
 
-    def fit(self, x_train, y_train):
-        ''' 
-            y_train: residuals from single black box model
-        ''' 
+    def fit(self, x_calibrate, y_calibrate, frac=0.7, random_state=10): 
+        '''
+            * split data into train and calibrate
+            * y_calibrate contains residuals 
+            step 1: fit model on training data + training residuals 
+            step 2: call calibrate  
+        '''
+        x_train, x_calib, y_train, y_calib = \
+            train_test_split(x_calibrate, y_calibrate, test_size=1-frac, random_state=random_state) 
         self.bbox.fit(x_train, y_train)
-
-    def calibrate(self, x_calibrate, y_calibrate): 
         # Initialize and calibrate the new method
         self.chr = CHR(self.bbox, ymin=-3, ymax=20, y_steps=200, delta_alpha=0.001, randomize=True)
-        self.chr.calibrate(x_calibrate, y_calibrate, self.alpha)
+        self.chr.calibrate(x_calib, y_calib, self.alpha)
 
     def predict(self, x_test): 
         return self.chr.predict(x_test)
@@ -164,11 +166,11 @@ class LACP(ConformalBase):
         # build the split local conformal object
         self.icp = IcpRegressor(nc)
     
-    def fit(self, x_train, y_train): 
+    def fit(self, x_calibrate, y_calibrate, frac=0.7, random_state=10):
+        x_train, x_calib, y_train, y_calib = \
+            train_test_split(x_calibrate, y_calibrate, test_size=1-frac, random_state=random_state)
         self.icp.fit(x_train, y_train)
-    
-    def calibrate(self, x_calibrate, y_calibrate):
-        self.icp.calibrate(x_calibrate, y_calibrate)
+        self.icp.calibrate(x_calib, y_calib)
 
     def predict(self, x_test): 
         return self.icp.predict(x_test, significance=self.alpha)
