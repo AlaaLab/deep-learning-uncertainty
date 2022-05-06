@@ -16,9 +16,7 @@ if not sys.warnoptions:
 from sklearn.neighbors import KernelDensity
 from sklearn.neighbors import KNeighborsRegressor
 
-
 # unconditional quantile regression (UQR)
-
 class UQR:
     
     def __init__(self, 
@@ -48,11 +46,8 @@ class UQR:
 
         return RIF_pred
 
-
 def get_relevance_group_size(delta, n_calib):
-
   return int(delta * n_calib * (1 - np.sqrt(2 * np.log(n_calib) / (delta * n_calib))))
-
 
 def get_achieved_coverage(knnresiduals, q_UQRs, alpha):
 
@@ -81,7 +76,6 @@ class TCP_RIF:
       # Initialize UQR models
 
       for k in range(len(self.alphas)):
-
         self.UQR_models.append(UQR(alpha=self.alphas[k]))
         
     def fit(self, X, Y):
@@ -91,19 +85,13 @@ class TCP_RIF:
       self.n_neighbors = get_relevance_group_size(self.delta, n_calib=X.shape[0])
 
       if len(X.shape)==1:
-
         X_ = X.reshape((-1, 1))
-        
       elif X.shape[1]==1 or X.shape[0]==1:
-
         X_ = X.reshape((-1, 1))
-
       else:
-
         X_ = X    
 
       for k in range(len(self.alphas)):
-        
         self.UQR_models[k].knn_size = self.n_neighbors
         self.UQR_models[k].fit(X_, Y_)
 
@@ -115,19 +103,13 @@ class TCP_RIF:
       self.q_UQRs = []
 
       if len(X.shape)==1:
-
         X_ = X.reshape((-1, 1))
-        
       elif X.shape[1]==1 or X.shape[0]==1:
-
         X_ = X.reshape((-1, 1))
-
       else:
-
         X_ = X   
 
       for k in range(len(self.alphas)):
-
         self.q_UQRs.append(self.UQR_models[k].predict(X_))
 
       self.q_UQRs = np.array(self.q_UQRs)
@@ -137,12 +119,10 @@ class TCP_RIF:
       q_interval   = []
   
       for k in range(len(X)):
-
         knnresiduals = self.Y_calib[np.argsort(np.abs(self.X_calib - X[k]))[:self.n_neighbors]] # replace this for high dimensional
         interval_    = get_achieved_coverage(knnresiduals, self.q_UQRs[:, k], self.alpha)
-
         q_interval.append(interval_)
+      q_int_arr = np.array(q_interval)
 
-      return np.array(q_interval)
-
+      return [-q_int_arr, q_int_arr]
       # report subgroup radiuss        

@@ -1,7 +1,7 @@
 import numpy as np 
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_pinball_loss, mean_squared_error
+from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPRegressor
 from numpy.random import default_rng
@@ -10,19 +10,21 @@ from sklearn.neighbors import KNeighborsRegressor, KDTree
 from sklearn.kernel_ridge import KernelRidge
 
 # cqr imports
-from cqr.cqr import helper
-from cqr.nonconformist.nc import RegressorNc
-from cqr.nonconformist.cp import IcpRegressor
-from cqr.nonconformist.nc import QuantileRegErrFunc
+import sys 
+sys.path.append('./cqr/cqr')
+from conformal.cqr.cqr import helper
+from conformal.cqr.nonconformist.nc import RegressorNc
+from conformal.cqr.nonconformist.cp import IcpRegressor
+from conformal.cqr.nonconformist.nc import QuantileRegErrFunc
 
 # chr imports 
-from chr.chr.black_boxes import QNet, QRF
-from chr.chr.black_boxes_r import QBART
-from chr.chr.methods import CHR
+from conformal.chr.chr.black_boxes import QNet, QRF
+from conformal.chr.chr.black_boxes_r import QBART
+from conformal.chr.chr.methods import CHR
 
 # locally adaptive conformal prediction imports
-from cqr.nonconformist.nc import AbsErrorErrFunc
-from cqr.nonconformist.nc import RegressorNormalizer
+from conformal.cqr.nonconformist.nc import AbsErrorErrFunc
+from conformal.cqr.nonconformist.nc import RegressorNormalizer
 
 class ConformalBase: 
     '''
@@ -52,7 +54,8 @@ class QR(ConformalBase):
     def __init__(self, alpha=0.1): 
         super().__init__(alpha)
     
-    def fit(self, x_calibrate, y_calibrate): 
+    def fit(self, x_calibrate, y_calibrate):
+        y_calibrate = np.array(y_calibrate) 
         self.all_models    = {}
         common_params = dict(
             learning_rate=0.05,
@@ -69,7 +72,7 @@ class QR(ConformalBase):
     def predict(self, x_test): 
         Quant_lo = self.all_models['q 0.05'].predict(x_test.reshape((-1, 1)))
         Quant_up = self.all_models['q 0.95'].predict(x_test.reshape((-1, 1)))
-        return [Quant_lo, Quant_up] # check if this is the same format as the other return statements
+        return [Quant_lo, Quant_up] 
 
 class CQR(ConformalBase): 
 
@@ -107,8 +110,16 @@ class CQR(ConformalBase):
             step 1: fit model on training data + training residuals 
             step 2: call calibrate  
         '''
+        if len(x_calibrate.shape)==1:
+            x_calibrate_ = x_calibrate.reshape((-1, 1))
+        elif x_calibrate.shape[1]==1 or x_calibrate.shape[0]==1:
+            x_calibrate_ = x_calibrate.reshape((-1, 1))
+        else:
+            x_calibrate_ = x_calibrate  
+        y_calibrate = np.array(y_calibrate) 
         x_train, x_calib, y_train, y_calib = \
-            train_test_split(x_calibrate, y_calibrate, test_size=1-frac, random_state=random_state)
+            train_test_split(x_calibrate_, y_calibrate, test_size=1-frac, random_state=random_state)
+        
         self.icp.fit(x_train, y_train)
         self.icp.calibrate(x_calib, y_calib)
 
@@ -116,7 +127,13 @@ class CQR(ConformalBase):
         '''
             We return both predictions and interval for each prediction
         '''
-        return self.icp.predict(x_test, significance=self.alpha)
+        if len(x_test.shape)==1:
+            x_test_ = x_test.reshape((-1, 1))
+        elif x_test.shape[1]==1 or x_test.shape[0]==1:
+            x_test_ = x_test.reshape((-1, 1))
+        else:
+            x_test_ = x_test   
+        return self.icp.predict(x_test_, significance=self.alpha)
 
 
 class CondHist(ConformalBase): 
@@ -134,15 +151,28 @@ class CondHist(ConformalBase):
             step 1: fit model on training data + training residuals 
             step 2: call calibrate  
         '''
+        if len(x_calibrate.shape)==1:
+            x_calibrate_ = x_calibrate.reshape((-1, 1))
+        elif x_calibrate.shape[1]==1 or x_calibrate.shape[0]==1:
+            x_calibrate_ = x_calibrate.reshape((-1, 1))
+        else:
+            x_calibrate_ = x_calibrate  
+        y_calibrate = np.array(y_calibrate) 
         x_train, x_calib, y_train, y_calib = \
-            train_test_split(x_calibrate, y_calibrate, test_size=1-frac, random_state=random_state) 
+            train_test_split(x_calibrate_, y_calibrate, test_size=1-frac, random_state=random_state) 
         self.bbox.fit(x_train, y_train)
         # Initialize and calibrate the new method
         self.chr = CHR(self.bbox, ymin=-3, ymax=20, y_steps=200, delta_alpha=0.001, randomize=True)
         self.chr.calibrate(x_calib, y_calib, self.alpha)
 
     def predict(self, x_test): 
-        return self.chr.predict(x_test)
+        if len(x_test.shape)==1:
+            x_test_ = x_test.reshape((-1, 1))
+        elif x_test.shape[1]==1 or x_test.shape[0]==1:
+            x_test_ = x_test.reshape((-1, 1))
+        else:
+            x_test_ = x_test   
+        return self.chr.predict(x_test_)
 
 class LACP(ConformalBase): 
 
@@ -177,11 +207,24 @@ class LACP(ConformalBase):
         self.icp = IcpRegressor(nc)
     
     def fit(self, x_calibrate, y_calibrate, frac=0.7, random_state=10):
+        if len(x_calibrate.shape)==1:
+            x_calibrate_ = x_calibrate.reshape((-1, 1))
+        elif x_calibrate.shape[1]==1 or x_calibrate.shape[0]==1:
+            x_calibrate_ = x_calibrate.reshape((-1, 1))
+        else:
+            x_calibrate_ = x_calibrate   
+        y_calibrate = np.array(y_calibrate)
         x_train, x_calib, y_train, y_calib = \
-            train_test_split(x_calibrate, y_calibrate, test_size=1-frac, random_state=random_state)
+            train_test_split(x_calibrate_, y_calibrate, test_size=1-frac, random_state=random_state)
         self.icp.fit(x_train, y_train)
         self.icp.calibrate(x_calib, y_calib)
 
     def predict(self, x_test): 
-        return self.icp.predict(x_test, significance=self.alpha)
+        if len(x_test.shape)==1:
+            x_test_ = x_test.reshape((-1, 1))
+        elif x_test.shape[1]==1 or x_test.shape[0]==1:
+            x_test_ = x_test.reshape((-1, 1))
+        else:
+            x_test_ = x_test   
+        return self.icp.predict(x_test_, significance=self.alpha)
 
