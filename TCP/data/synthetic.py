@@ -88,8 +88,20 @@ def sample_data(n=100,
                 feature_dist="uniform",
                 **kwargs):
 
-  X    = feature_distribution(a, b, n, dist=feature_dist)
-  Y, Q = [outcome_model(X[_])[0] for _ in range(n)], [outcome_model(X[_])[1] for _ in range(n)]
+  outcome_params = dict({"T":T, "C_1": C_1, "C_2": C_2, "alpha": alpha, "form": form})
+  feature_params = dict({"a": a, "b": b, "n": n})
+
+  if feature_dist=="gaussian":
+
+    X            = 2 * feature_distribution(dist=feature_dist, **dict({"a": 0, "b": 1, "n": n}))
+
+  else:
+  
+    X            = feature_distribution(dist=feature_dist, **feature_params)  
+
+
+  YQ             = [outcome_model(X[_], **outcome_params) for _ in range(n)]
+  Y, Q           = [YQ[_][0] for _ in range(n)], [YQ[_][1] for _ in range(n)]
 
   return X, Y, Q
 
