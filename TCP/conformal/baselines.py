@@ -138,10 +138,10 @@ class CQR(ConformalBase):
 
 class CondHist(ConformalBase): 
 
-    def __init__(self, alpha=0.1): 
+    def __init__(self, alpha=0.1, n_features=1): 
         super().__init__(alpha)        
         grid_quantiles = np.arange(0.01,1.0,0.01)
-        self.bbox = QNet(grid_quantiles, 1, no_crossing=True, batch_size=1000, dropout=0.1,
+        self.bbox = QNet(grid_quantiles, n_features, no_crossing=True, batch_size=1000, dropout=0.1,
             num_epochs=10000, learning_rate=0.0005, num_hidden=256, calibrate=0)
 
     def fit(self, x_calibrate, y_calibrate, frac=0.7, random_state=10): 
@@ -160,6 +160,7 @@ class CondHist(ConformalBase):
         y_calibrate = np.array(y_calibrate) 
         x_train, x_calib, y_train, y_calib = \
             train_test_split(x_calibrate_, y_calibrate, test_size=1-frac, random_state=random_state) 
+        import pdb; pdb.set_trace()
         self.bbox.fit(x_train, y_train)
         # Initialize and calibrate the new method
         self.chr = CHR(self.bbox, ymin=-3, ymax=20, y_steps=200, delta_alpha=0.001, randomize=True)
