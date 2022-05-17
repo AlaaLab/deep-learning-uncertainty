@@ -12,6 +12,7 @@ from conformal.TCP import *
 from utils.visualize import *
 from utils.metrics import *
 from utils.base_models import *
+from sklearn.ensemble import GradientBoostingRegressor
 import sys 
 import six
 sys.path.append('./conformal/cqr/')
@@ -27,11 +28,12 @@ def run_experiment(model='TCP', data_params={}, delta=0.05, alpha=0.1):
     dataset_base_path = data_params['base_path']
     params = data_params['params']
     data_out = get_scaled_dataset(dataset_name, dataset_base_path, params=params)
-    X_train, y_train = to_numpy(data_out.X_tr[:800]), to_numpy(data_out.y_tr[:800]).squeeze()
-    X_calib, y_calib = to_numpy(data_out.X_ca[:800]), to_numpy(data_out.y_ca[:800]).squeeze()
+    X_train, y_train = to_numpy(data_out.X_tr), to_numpy(data_out.y_tr).squeeze()
+    X_calib, y_calib = to_numpy(data_out.X_ca), to_numpy(data_out.y_ca).squeeze()
     X_test, y_test   = to_numpy(data_out.X_te), to_numpy(data_out.y_te).squeeze()
 
     # fit model to proper training set
+    ''' 
     data_prop = {'X': X_train, 'y': y_train}
     hp = {'hidden_layer_sizes': [(100,100)],
         'activation': ['relu'],
@@ -48,6 +50,10 @@ def run_experiment(model='TCP', data_params={}, delta=0.05, alpha=0.1):
                 hp=hp)
     f = Model('MLP', hp=best_hp_prop)
     print(f'2] Fitting MLP on proper training set.')
+    f.fit(X_train, y_train)
+    '''
+    print(f'2] Fitting GradientBoostingRegressor on proper training set.')
+    f = GradientBoostingRegressor()
     f.fit(X_train, y_train)
 
     # compute residuals on calibration set
@@ -119,6 +125,7 @@ if __name__ == '__main__':
             real_world_datasets[dataset]['params'] = params
 
             for method in methods: 
+                print(f'Running Experiment Configuration - [experiment {i+1}, {dataset}, {method}]')
                 marginal_coverage, average_length = run_experiment(model=method, 
                                                 data_params=real_world_datasets[dataset],
                                                 alpha=args.alpha)
@@ -131,6 +138,5 @@ if __name__ == '__main__':
     
     R = pd.DataFrame(exp_results)
     print(R)
-    import pdb; pdb.set_trace()
     if args.save: 
-        R.to_csv('real_world_results.csv', index=False)
+        R.to_csv('real_world_results_5runs.csv', index=False)
