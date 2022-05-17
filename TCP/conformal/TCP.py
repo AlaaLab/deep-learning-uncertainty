@@ -8,6 +8,7 @@
 from __future__ import absolute_import, division, print_function
 import numpy as np
 import sys
+from sklearn.ensemble import GradientBoostingRegressor
 
 if not sys.warnoptions:
     import warnings
@@ -42,7 +43,11 @@ class UQR:
 
         self.fr_density    = np.exp(kde.score_samples(np.array([q_alpha]).reshape((-1, 1))))[0]
         self.RIF           = self.q_alpha + (((1-self.alpha) - (residuals < self.q_alpha))/ self.fr_density)
-        self.RIF_model     = KNeighborsRegressor(n_neighbors=self.knn_size) #GradientBoostingRegressor(n_estimators=100) #KernelRegression(gamma=10) #
+        if X.shape[0] == 1 or X.shape[1] == 1: 
+          self.RIF_model     = KNeighborsRegressor(n_neighbors=self.knn_size) #GradientBoostingRegressor(n_estimators=100) #KernelRegression(gamma=10) #
+        else: 
+          self.RIF_model     = GradientBoostingRegressor(n_estimators=100)
+        # self.RIF_model     = KNeighborsRegressor(n_neighbors=self.knn_size)
 
         self.RIF_model.fit(X, self.RIF)
     
@@ -54,8 +59,8 @@ def get_relevance_group_size(delta, n_calib):
   return int(delta * n_calib * (1 - np.sqrt(2 * np.log(n_calib) / (delta * n_calib))))
 
 def get_achieved_coverage(knnresiduals, q_UQRs, alpha):
-  acheved_cov = np.array([np.mean((knnresiduals > q_UQRs[u]) | (knnresiduals < -1 * q_UQRs[u])) for u in range(q_UQRs.shape[0])])
-  return q_UQRs[np.argmin(np.abs(acheved_cov - alpha))]
+  achieved_cov = np.array([np.mean((knnresiduals > q_UQRs[u]) | (knnresiduals < -1 * q_UQRs[u])) for u in range(q_UQRs.shape[0])])
+  return q_UQRs[np.argmin(np.abs(achieved_cov - alpha))]
 
 # Transparent conformal with RIF nested sequences
 class TCP_RIF:
@@ -122,7 +127,7 @@ class TCP_RIF:
           knnresiduals = self.Y_calib[np.argsort(np.linalg.norm(self.X_calib - X[k][None,:], ord=2, axis=1))[:self.n_neighbors]]
         else: # univariate case
           knnresiduals = self.Y_calib[np.argsort(np.abs(self.X_calib - X[k]))[:self.n_neighbors]] # replace this for high dimensional
-        interval_    = get_achieved_coverage(knnresiduals, self.q_UQRs[:, k], self.alpha)
+        interval_    = get_achieved_coverage(knnresiduals.reshape((-1,1)), self.q_UQRs[:, k], self.alpha)
         q_interval.append(interval_)
 
       self.radii     = np.array([np.sort(euclidean_distance(X[k], self.X_calib))[self.n_neighbors] for k in range(len(X))])

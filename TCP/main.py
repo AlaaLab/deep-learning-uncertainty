@@ -23,17 +23,18 @@ from conformal.baselines import *
 def to_numpy(T): 
     return T.cpu().detach().numpy()
 
-def run_experiment(model='TCP', data_params={}, delta=0.05, alpha=0.1): 
+def run_experiment(model='TCP', data_params={}, delta=1., alpha=0.1): 
     dataset_name   = data_params['name']
     dataset_base_path = data_params['base_path']
     params = data_params['params']
     data_out = get_scaled_dataset(dataset_name, dataset_base_path, params=params)
     X_train, y_train = to_numpy(data_out.X_tr), to_numpy(data_out.y_tr).squeeze()
-    X_calib, y_calib = to_numpy(data_out.X_ca), to_numpy(data_out.y_ca).squeeze()
+    X_calib, y_calib = to_numpy(data_out.X_ca)[:1000], to_numpy(data_out.y_ca).squeeze()[:1000]
     X_test, y_test   = to_numpy(data_out.X_te), to_numpy(data_out.y_te).squeeze()
 
     # fit model to proper training set
-    ''' 
+    '''
+    
     data_prop = {'X': X_train, 'y': y_train}
     hp = {'hidden_layer_sizes': [(100,100)],
         'activation': ['relu'],
@@ -107,9 +108,21 @@ if __name__ == '__main__':
     meps_19 = dict({'name': 'meps_19', 'base_path': args.base_path, 'params': None})
     meps_20 = dict({'name': 'meps_20', 'base_path': args.base_path, 'params': None})
     meps_21 = dict({'name': 'meps_21', 'base_path': args.base_path, 'params': None})
+    facebook_1 = dict({'name': 'facebook_1', 'base_path': args.base_path, 'params': None})
+    facebook_2 = dict({'name': 'facebook_2', 'base_path': args.base_path, 'params': None})
+    bio = dict({'name': 'bio', 'base_path': args.base_path, 'params': None})
+    blog_data = dict({'name': 'blog_data', 'base_path': args.base_path, 'params': None})
+    kin8nm = dict({'name': 'kin8nm', 'base_path': args.base_path, 'params': None})
+    naval  = dict({'name': 'naval', 'base_path': args.base_path, 'params': None})
     real_world_datasets = dict({'meps_19': meps_19, 
                                 'meps_20': meps_20, 
-                                'meps_21': meps_21})
+                                'meps_21': meps_21, 
+                                'facebook_1': facebook_1, 
+                                'facebook_2': facebook_2, 
+                                'bio': bio, 
+                                'blog_data': blog_data,
+                                'kin8nm': kin8nm,
+                                'naval': naval})
 
     grand_seed = args.grand_seed
     n_experiments = args.n_experiments
@@ -139,4 +152,4 @@ if __name__ == '__main__':
     R = pd.DataFrame(exp_results)
     print(R)
     if args.save: 
-        R.to_csv('real_world_results_5runs.csv', index=False)
+        R.to_csv('./results/real_world_results_5runs_more_datasets_r2.csv', index=False)
