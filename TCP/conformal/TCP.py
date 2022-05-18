@@ -44,11 +44,7 @@ class UQR:
 
         self.fr_density    = np.exp(kde.score_samples(np.array([q_alpha]).reshape((-1, 1))))[0]
         self.RIF           = self.q_alpha + (((1-self.alpha) - (residuals < self.q_alpha))/ self.fr_density)
-        # if X.shape[0] == 1 or X.shape[1] == 1: 
-        #   self.RIF_model     = KNeighborsRegressor(n_neighbors=self.knn_size) #GradientBoostingRegressor(n_estimators=100) #KernelRegression(gamma=10) #
-        # else: 
-        #   self.RIF_model     = GradientBoostingRegressor(n_estimators=100)
-        self.RIF_model     = KNeighborsRegressor(n_neighbors=self.knn_size)
+        self.RIF_model     = KNeighborsRegressor(n_neighbors=self.knn_size) #GradientBoostingRegressor(n_estimators=100) #KernelRegression(gamma=10) #
 
         self.RIF_model.fit(X, self.RIF)
     
