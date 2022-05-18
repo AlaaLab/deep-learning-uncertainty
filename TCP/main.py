@@ -28,9 +28,12 @@ def run_experiment(model='TCP', data_params={}, delta=.05, alpha=0.1):
     dataset_base_path = data_params['base_path']
     params = data_params['params']
     data_out = get_scaled_dataset(dataset_name, dataset_base_path, params=params)
-    X_train, y_train = to_numpy(data_out.X_tr), to_numpy(data_out.y_tr).squeeze()
-    X_calib, y_calib = to_numpy(data_out.X_ca)[1000:2000], to_numpy(data_out.y_ca).squeeze()[1000:2000]
-    X_test, y_test   = to_numpy(data_out.X_te), to_numpy(data_out.y_te).squeeze()
+    # X_train, y_train = to_numpy(data_out.X_tr), to_numpy(data_out.y_tr).squeeze()
+    # X_calib, y_calib = to_numpy(data_out.X_ca)[1000:2000], to_numpy(data_out.y_ca).squeeze()[1000:2000]
+    # X_test, y_test   = to_numpy(data_out.X_te), to_numpy(data_out.y_te).squeeze()
+    X_train, y_train = to_numpy(data_out.X_tr), to_numpy(data_out.y_tr)
+    X_calib, y_calib = to_numpy(data_out.X_ca)[1000:2000], to_numpy(data_out.y_ca)[1000:2000]
+    X_test, y_test   = to_numpy(data_out.X_te), to_numpy(data_out.y_te)
 
     # fit model to proper training set
     '''
@@ -59,9 +62,9 @@ def run_experiment(model='TCP', data_params={}, delta=.05, alpha=0.1):
 
     # compute residuals on calibration set
     print(f'3] Computing residuals on calibration set.')
-    y_pred = f.predict(X_calib)
+    y_pred = f.predict(X_calib)[:,None]
     y_resid_calib = np.abs(y_calib - y_pred)
-    y_pred_test  = f.predict(X_test)
+    y_pred_test  = f.predict(X_test)[:,None]
     y_resid_test = np.abs(y_test - y_pred_test)
 
     # conformal method
@@ -70,7 +73,6 @@ def run_experiment(model='TCP', data_params={}, delta=.05, alpha=0.1):
         TCP_model    = TCP_RIF(delta=delta)
         TCP_model.fit(X_calib, y_resid_calib, seed=params['seed'])
         q_TCP_RIF_test, r_TCP_RIF_test = TCP_model.predict(X_test)
-        subgroup_idxs = TCP_model.get_subgroup_idxs()
 
         ''' 
             Metric 1
@@ -82,8 +84,6 @@ def run_experiment(model='TCP', data_params={}, delta=.05, alpha=0.1):
         '''
         q_lower      = -1 * q_TCP_RIF_test
         q_upper      = q_TCP_RIF_test
-        coverage_subgroups = compute_subgroup_coverage(subgroup_idxs, y_resid_test, q_lower, q_upper)
-        print(f'coverage in subgroup (metric 2): {np.mean(coverage_subgroups)}')
     elif model == 'CP': 
         q_conformal = empirical_quantile(y_resid_calib, alpha=alpha)
         q_lower     = -1 * q_conformal * np.ones(X_test.shape[0])
@@ -104,14 +104,24 @@ def run_experiment(model='TCP', data_params={}, delta=.05, alpha=0.1):
         q_lower = q_intervals[:,0]; q_upper = q_intervals[:,1]
     else: 
         raise ValueError('invalid method specified. must be one of ["CP", "TCP", "CQR", or "CondHist"]')
+    
+    x_query = X_test
+    n_neighbors = get_relevance_group_size(delta, n_calib=X_calib.shape[0])
+    radii       = np.array([np.sort(euclidean_distance(x_query[k], X_calib))[n_neighbors] for k in range(len(x_query))])
+    test_subgroup_idxs = [np.where(euclidean_distance(x_query[k], x_query) < radii[k])[0] for k in range(len(x_query))]
+    coverage_subgroups = compute_subgroup_coverage(test_subgroup_idxs, y_resid_test, q_lower, q_upper)
+    print(f'coverage in subgroup (metric 2): {np.mean(coverage_subgroups)}')
 
-    return compute_coverage(y_resid_test, q_lower, q_upper)
+    print(f'{y_resid_test.shape}, {q_lower.shape}, {q_upper.shape}')
+    marginal_coverage, ave_length = compute_coverage(y_resid_test, q_lower, q_upper)
+    return marginal_coverage, ave_length, np.mean(coverage_subgroups)
 
 if __name__ == '__main__': 
     parser = ArgumentParser()
     parser.add_argument('--grand_seed', default=42, type=int, help='meta level seed')
     parser.add_argument('-n', '--n_experiments', default=2, type=int, help='# of experiments to run')
     parser.add_argument('--alpha', default=0.1, type=float, help='level of confidence intervals produced')
+    parser.add_argument('--delta', default=0.15, type=float, help='getting relevant neighborhood')
     parser.add_argument('--base_path', type=str, default='./data/real_data/')
     parser.add_argument('--save', type=strtobool, default=True)
     parser.add_argument('-d','--datasets', nargs='+', help='list of datasets', required=True) #['meps_19', 'meps_20', 'meps_21'] 
@@ -153,17 +163,19 @@ if __name__ == '__main__':
 
             for method in methods: 
                 print(f'Running Experiment Configuration - [experiment {i+1}, {dataset}, {method}]')
-                marginal_coverage, average_length = run_experiment(model=method, 
+                marginal_coverage, average_length, subgroup_cov = run_experiment(model=method, 
                                                 data_params=real_world_datasets[dataset],
+                                                delta=args.delta,
                                                 alpha=args.alpha)
                 result = {'exp_num': i, 
                           'dataset': dataset, 
                           'model': method, 
                           'marginal_coverage': marginal_coverage, 
-                          'average_length': average_length}
+                          'average_length': average_length,
+                          'subgroup_coverage_metric2': subgroup_cov}
                 exp_results.append(result)
     
     R = pd.DataFrame(exp_results)
     print(R)
     if args.save: 
-        R.to_csv('./results/real_world_results_working_5runs.csv', index=False)
+        R.to_csv('./results/real_world_results_working_5runs_meps_19.csv', index=False)
