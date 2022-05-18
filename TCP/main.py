@@ -23,13 +23,13 @@ from conformal.baselines import *
 def to_numpy(T): 
     return T.cpu().detach().numpy()
 
-def run_experiment(model='TCP', data_params={}, delta=1., alpha=0.1): 
+def run_experiment(model='TCP', data_params={}, delta=.05, alpha=0.1): 
     dataset_name   = data_params['name']
     dataset_base_path = data_params['base_path']
     params = data_params['params']
     data_out = get_scaled_dataset(dataset_name, dataset_base_path, params=params)
     X_train, y_train = to_numpy(data_out.X_tr), to_numpy(data_out.y_tr).squeeze()
-    X_calib, y_calib = to_numpy(data_out.X_ca)[:1000], to_numpy(data_out.y_ca).squeeze()[:1000]
+    X_calib, y_calib = to_numpy(data_out.X_ca)[1000:2000], to_numpy(data_out.y_ca).squeeze()[1000:2000]
     X_test, y_test   = to_numpy(data_out.X_te), to_numpy(data_out.y_te).squeeze()
 
     # fit model to proper training set
@@ -60,16 +60,30 @@ def run_experiment(model='TCP', data_params={}, delta=1., alpha=0.1):
     # compute residuals on calibration set
     print(f'3] Computing residuals on calibration set.')
     y_pred = f.predict(X_calib)
-    y_resid_calib = y_calib - y_pred
+    y_resid_calib = np.abs(y_calib - y_pred)
+    y_pred_test  = f.predict(X_test)
+    y_resid_test = np.abs(y_test - y_pred_test)
 
     # conformal method
     print(f'4] Running {model}...')
     if model == 'TCP':      
         TCP_model    = TCP_RIF(delta=delta)
-        TCP_model.fit(X_calib, y_resid_calib)
+        TCP_model.fit(X_calib, y_resid_calib, seed=params['seed'])
         q_TCP_RIF_test, r_TCP_RIF_test = TCP_model.predict(X_test)
+        subgroup_idxs = TCP_model.get_subgroup_idxs()
+
+        ''' 
+            Metric 1
+            external_residuals = []
+            for sg in subgroup_idxs: 
+                external_residuals.append(y_resid_calib[sg])
+            internal_residuals = TCP_model.internal_residuals        
+            print(np.mean(((internal_residuals[0] < q_upper[0]) & (internal_residuals[0] > q_lower[0]))))
+        '''
         q_lower      = -1 * q_TCP_RIF_test
         q_upper      = q_TCP_RIF_test
+        coverage_subgroups = compute_subgroup_coverage(subgroup_idxs, y_resid_test, q_lower, q_upper)
+        print(f'coverage in subgroup (metric 2): {np.mean(coverage_subgroups)}')
     elif model == 'CP': 
         q_conformal = empirical_quantile(y_resid_calib, alpha=alpha)
         q_lower     = -1 * q_conformal * np.ones(X_test.shape[0])
@@ -91,7 +105,7 @@ def run_experiment(model='TCP', data_params={}, delta=1., alpha=0.1):
     else: 
         raise ValueError('invalid method specified. must be one of ["CP", "TCP", "CQR", or "CondHist"]')
 
-    return compute_coverage(y_test, q_lower, q_upper)
+    return compute_coverage(y_resid_test, q_lower, q_upper)
 
 if __name__ == '__main__': 
     parser = ArgumentParser()
@@ -152,4 +166,4 @@ if __name__ == '__main__':
     R = pd.DataFrame(exp_results)
     print(R)
     if args.save: 
-        R.to_csv('./results/real_world_results_5runs_more_datasets_r2.csv', index=False)
+        R.to_csv('./results/real_world_results_working_5runs.csv', index=False)

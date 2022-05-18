@@ -9,6 +9,7 @@ from __future__ import absolute_import, division, print_function
 import numpy as np
 import sys
 from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.model_selection import train_test_split
 
 if not sys.warnoptions:
     import warnings
@@ -43,11 +44,11 @@ class UQR:
 
         self.fr_density    = np.exp(kde.score_samples(np.array([q_alpha]).reshape((-1, 1))))[0]
         self.RIF           = self.q_alpha + (((1-self.alpha) - (residuals < self.q_alpha))/ self.fr_density)
-        if X.shape[0] == 1 or X.shape[1] == 1: 
-          self.RIF_model     = KNeighborsRegressor(n_neighbors=self.knn_size) #GradientBoostingRegressor(n_estimators=100) #KernelRegression(gamma=10) #
-        else: 
-          self.RIF_model     = GradientBoostingRegressor(n_estimators=100)
-        # self.RIF_model     = KNeighborsRegressor(n_neighbors=self.knn_size)
+        # if X.shape[0] == 1 or X.shape[1] == 1: 
+        #   self.RIF_model     = KNeighborsRegressor(n_neighbors=self.knn_size) #GradientBoostingRegressor(n_estimators=100) #KernelRegression(gamma=10) #
+        # else: 
+        #   self.RIF_model     = GradientBoostingRegressor(n_estimators=100)
+        self.RIF_model     = KNeighborsRegressor(n_neighbors=self.knn_size)
 
         self.RIF_model.fit(X, self.RIF)
     
@@ -66,7 +67,7 @@ def get_achieved_coverage(knnresiduals, q_UQRs, alpha):
 class TCP_RIF:
     
     def __init__(self, 
-                 alphas=list(np.linspace(0.005, 0.975, 100)),
+                 alphas=list(np.linspace(0.005, 0.975, 20)),
                  alpha=0.1,
                  delta=0.05,
                  residual_density="kde"):
@@ -77,16 +78,16 @@ class TCP_RIF:
       self.residual_density  = residual_density
       self.delta             = delta
       self.alpha             = alpha  
+      self.test_subgroup_idxs     = None
 
       # Initialize UQR models
       for k in range(len(self.alphas)):
         self.UQR_models.append(UQR(alpha=self.alphas[k]))
         
-    def fit(self, X, Y):
+    def fit(self, X, Y, seed=42, test_size=0.5):
 
       self.q_UQRs      = []
       X, Y_            = np.array(X), np.array(Y)
-      self.n_neighbors = get_relevance_group_size(self.delta, n_calib=X.shape[0])
 
       if len(X.shape)==1:
         X_ = X.reshape((-1, 1))
@@ -94,7 +95,8 @@ class TCP_RIF:
         X_ = X.reshape((-1, 1))
       else:
         X_ = X    
-
+      self.n_neighbors = get_relevance_group_size(self.delta, n_calib=X.shape[0])
+      
       for k in range(len(self.alphas)):
         if k % 10 == 0: 
           print(f'fitting UQR number {k}')
@@ -122,17 +124,25 @@ class TCP_RIF:
 
       # conformalization
       q_interval   = []
+      self.internal_residuals = []
       for k in range(len(X)):
+
         if X_.shape[1] > 1: # multi-dimensional casei
           knnresiduals = self.Y_calib[np.argsort(np.linalg.norm(self.X_calib - X[k][None,:], ord=2, axis=1))[:self.n_neighbors]]
         else: # univariate case
           knnresiduals = self.Y_calib[np.argsort(np.abs(self.X_calib - X[k]))[:self.n_neighbors]] # replace this for high dimensional
+        self.internal_residuals.append(knnresiduals)
         interval_    = get_achieved_coverage(knnresiduals.reshape((-1,1)), self.q_UQRs[:, k], self.alpha)
         q_interval.append(interval_)
 
       self.radii     = np.array([np.sort(euclidean_distance(X[k], self.X_calib))[self.n_neighbors] for k in range(len(X))])
+      self.test_subgroup_idxs = [np.where(euclidean_distance(X[k],X_) < self.radii[k])[0] for k in range(len(X))]
 
       return np.array(q_interval), self.radii
+    
+    def get_subgroup_idxs(self): 
+      assert self.test_subgroup_idxs is not None 
+      return self.test_subgroup_idxs
 
              
 
