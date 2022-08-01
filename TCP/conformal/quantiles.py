@@ -17,4 +17,4 @@ if not sys.warnoptions:
 
 def empirical_quantile(residuals, alpha=.05):
 
-  return np.quantile(residuals, 1-(alpha/2))
+  return np.quantile(residuals, 1-(alpha))
