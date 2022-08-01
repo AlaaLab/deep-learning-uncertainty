@@ -1,4 +1,5 @@
 import numpy as np 
+import torch
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
@@ -48,7 +49,8 @@ class ConformalBase:
             We return both predictions and interval for each prediction
         '''
         raise NotImplementedError()
-    
+
+'''
 class QR(ConformalBase): 
 
     def __init__(self, alpha=0.1): 
@@ -70,8 +72,141 @@ class QR(ConformalBase):
                 gbr.fit(x_calibrate.reshape((-1, 1)), np.array(y_calibrate).reshape((-1, 1)))
 
     def predict(self, x_test): 
-        Quant_lo = self.all_models['q 0.05'].predict(x_test.reshape((-1, 1)))
-        Quant_up = self.all_models['q 0.95'].predict(x_test.reshape((-1, 1)))
+        if len(x_test.shape)==1:
+            x_test_ = x_test.reshape((-1, 1))
+        elif x_test.shape[1]==1 or x_test.shape[0]==1:
+            x_test_ = x_test.reshape((-1, 1))
+        else:
+            x_test_ = x_test   
+        Quant_lo = self.all_models['q 0.05'].predict(x_test_)
+        Quant_up = self.all_models['q 0.95'].predict(x_test_)
+        return [Quant_lo, Quant_up] 
+'''
+
+class QR_RF(ConformalBase): 
+
+    def __init__(self, alpha=0.1): 
+        super().__init__(alpha)
+        
+        n_estimators = 100 
+        min_samples_leaf = 40 
+        max_features = 1 
+        random_state = 0
+        quantiles = [alpha*10/2, 100-(alpha*10/2)]         
+
+        # define dictionary for quantile estimator
+        params_qforest = dict()
+        params_qforest['n_estimators'] = n_estimators
+        params_qforest['min_samples_leaf'] = min_samples_leaf
+        params_qforest['max_features'] = max_features
+        params_qforest['CV'] = True
+        params_qforest['coverage_factor'] = 0.9
+        params_qforest['test_ratio'] = 0.1
+        params_qforest['random_state'] = random_state
+        params_qforest['range_vals'] = 10
+        params_qforest['num_vals'] = 4
+        
+        self.alpha              = alpha
+        self.quantile_estimator = helper.QuantileForestRegressorAdapter(model=None,
+                                                           fit_params=None,
+                                                           quantiles=quantiles,
+                                                           params=params_qforest)
+    
+    def fit(self, x_calibrate, y_calibrate):
+        if len(x_calibrate.shape)==1:
+            x_calibrate_ = x_calibrate.reshape((-1, 1))
+        elif x_calibrate.shape[1]==1 or x_calibrate.shape[0]==1:
+            x_calibrate_ = x_calibrate.reshape((-1, 1))
+        else:
+            x_calibrate_ = x_calibrate   
+        y_calibrate = np.array(y_calibrate)
+        
+        self.quantile_estimator.fit(x_calibrate_, y_calibrate)
+
+    def predict(self, x_test): 
+        if len(x_test.shape)==1:
+            x_test_ = x_test.reshape((-1, 1))
+        elif x_test.shape[1]==1 or x_test.shape[0]==1:
+            x_test_ = x_test.reshape((-1, 1))
+        else:
+            x_test_ = x_test   
+        Quant_lo = self.quantile_estimator.predict(x_test_)[:, 0]
+        Quant_up = self.quantile_estimator.predict(x_test_)[:, 1]
+        return [Quant_lo, Quant_up] 
+
+class QR_NN(ConformalBase): 
+
+    def __init__(self, alpha=0.1, in_shape=100): 
+        super().__init__(alpha)
+        
+        nn_learn_func = torch.optim.Adam
+
+        # number of epochs
+        epochs = 100
+
+        # learning rate
+        lr = 0.001
+
+        # mini-batch size
+        batch_size = 64
+
+        # hidden dimension of the network
+        hidden_size = 64
+
+        # dropout regularization rate
+        dropout = 0.1
+
+        # weight decay regularization
+        wd = 1e-6
+        cv_test_ratio=.5
+        cv_random_state = 1
+
+        # Ask for a reduced coverage when tuning the network parameters by 
+        # cross-validataion to avoid too concervative initial estimation of the 
+        # prediction interval. This estimation will be conformalized by CQR.
+        quantiles_net = [alpha, 1-alpha]
+        
+        self.alpha              = alpha
+        self.quantile_estimator = helper.AllQNet_RegressorAdapter(model=None,
+                                                     fit_params=None,
+                                                     in_shape=in_shape,
+                                                     hidden_size=hidden_size,
+                                                     quantiles=quantiles_net,
+                                                     learn_func=nn_learn_func,
+                                                     epochs=epochs,
+                                                     batch_size=batch_size,
+                                                     dropout=dropout,
+                                                     lr=lr,
+                                                     wd=wd,
+                                                     test_ratio=cv_test_ratio,
+                                                     random_state=cv_random_state,
+                                                     use_rearrangement=False)
+    
+    def fit(self, x_calibrate, y_calibrate):
+        y_calibrate = np.array(y_calibrate)
+        
+        x_calibrate = x_calibrate.astype(np.float32)
+        y_calibrate = y_calibrate.astype(np.float32)
+
+        if len(x_calibrate.shape)==1:
+            x_calibrate_ = x_calibrate.reshape((-1, 1))
+        elif x_calibrate.shape[1]==1 or x_calibrate.shape[0]==1:
+            x_calibrate_ = x_calibrate.reshape((-1, 1))
+        else:
+            x_calibrate_ = x_calibrate   
+        
+        self.quantile_estimator.fit(x_calibrate_, y_calibrate)
+        
+    def predict(self, x_test): 
+        x_test   = x_test.astype(np.float32)
+        if len(x_test.shape)==1:
+            x_test_ = x_test.reshape((-1, 1))
+        elif x_test.shape[1]==1 or x_test.shape[0]==1:
+            x_test_ = x_test.reshape((-1, 1))
+        else:
+            x_test_ = x_test   
+        Quant_lo = self.quantile_estimator.predict(x_test_)[:, 0]
+        Quant_up = self.quantile_estimator.predict(x_test_)[:, 1]
         return [Quant_lo, Quant_up] 
 
 class CQR(ConformalBase): 
@@ -135,7 +270,6 @@ class CQR(ConformalBase):
             x_test_ = x_test   
         return self.icp.predict(x_test_, significance=self.alpha)
 
-
 class CondHist(ConformalBase): 
 
     def __init__(self, alpha=0.1, n_features=1): 
@@ -182,7 +316,7 @@ class LACP(ConformalBase):
         min_samples_leaf = 40 
         max_features = 1 
         random_state = 0
-        # define the conditonal mean estimator as random forests (used to predict the labels)
+        # define the conditonal mean estimator as randoms forests (used to predict the labels)
         mean_estimator = RandomForestRegressor(n_estimators=n_estimators,
                                             min_samples_leaf=min_samples_leaf,
                                             max_features=max_features,
@@ -206,7 +340,7 @@ class LACP(ConformalBase):
         # build the split local conformal object
         self.icp = IcpRegressor(nc)
     
-    def fit(self, x_calibrate, y_calibrate, frac=0.7, random_state=10):
+    def fit(self, x_calibrate, y_calibrate, frac=0.5, random_state=10):
         if len(x_calibrate.shape)==1:
             x_calibrate_ = x_calibrate.reshape((-1, 1))
         elif x_calibrate.shape[1]==1 or x_calibrate.shape[0]==1:
