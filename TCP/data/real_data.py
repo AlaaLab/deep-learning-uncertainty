@@ -199,7 +199,7 @@ def get_scaled_dataset(dataset_name,
     if dataset_name in log_transform_datasets or need_scaling:
         y = np.log(y - min(y) + 1)
     data_size = len(X)  
-    np.random.seed(params['seed'])
+    np.random.seed(params['train_seed'])
     idx = np.random.permutation(len(X))[:data_size]
     X = X[idx]
     y = y[idx]
@@ -209,9 +209,9 @@ def get_scaled_dataset(dataset_name,
 
 def scale_data(X, y, params={}): 
     X_train, X_te, y_train, y_te = train_test_split(
-        X, y, test_size=params['test_size'], random_state=params['seed'])
+        X, y, test_size=params['test_size'], random_state=params['train_seed'])
     X_tr, X_ca, y_tr, y_ca = train_test_split(
-        X_train, y_train, test_size=0.5, random_state=params['seed'])
+        X_train, y_train, test_size=0.5, random_state=params['train_seed'])
 
     s_tr_X = StandardScaler().fit(X_tr)
     s_tr_y = StandardScaler().fit(y_tr)
