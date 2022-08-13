@@ -117,6 +117,8 @@ This repo contains literature survey and implementation of baselines for predict
 
 - B. Charpentier, D. Zügner, S. Günnemann. "Posterior Network: Uncertainty Estimation without OOD Samples via Density-Based Pseudo-Counts." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/0eac690d7059a8de4b48e90f14510391-Abstract.html) 
 
+- Carvalho EDC, Clark R, Nicastro A, et al., Scalable uncertainty for computer vision with functional variationalinference, CVPR 2020, IEEE, Pages:12003-12013. [[Link]](https://openaccess.thecvf.com/content_CVPR_2020/html/Carvalho_Scalable_Uncertainty_for_Computer_Vision_With_Functional_Variational_Inference_CVPR_2020_paper.html)
+
 - L. Meronen, C. Irwanto, A. Solin. "Stationary Activations for Uncertainty Calibration in Deep Learning." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/18a411989b47ed75a60ac69d9da05aa5-Abstract.html)  
 
 - F. Wenzel, J. Snoek, D. Tran, R. Jenatton. "Hyperparameter Ensembles for Robustness and Uncertainty Quantification." NeurIPS, 2020. [[Link]](https://proceedings.neurips.cc/paper/2020/hash/481fbfa59da2581098e841b7afc122f1-Abstract.html)   
